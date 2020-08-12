@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
+const config = require('./config/config');
 
 
 
@@ -8,11 +9,11 @@ const mysql = require('mysql');
 console.log('Connexion en cours, veuillez patienter...');
 
 let connectionMysql = mysql.createConnection({
-    database: 'Groupomania',
-    host: "localhost",
-    port: '8889',
-    user: "root",
-    password: "root"
+    database: config.dataBase,
+    host: config.host,
+    port: config.port,
+    user: config.user,
+    password: config.password
 });
 
 connectionMysql.connect(function(error) {
