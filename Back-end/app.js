@@ -23,6 +23,15 @@ connectionMysql.connect(function(error) {
         console.log("Vous êtes maintenant connecté !");
 });
 
+//Appliquer le CORS pour travailler sur deux localhost différents
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'Origin');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    next();
+});
+
 
 const app = express();
 app.use(bodyParser.json());
