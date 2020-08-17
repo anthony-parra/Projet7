@@ -1,20 +1,26 @@
 import React, { Fragment } from 'react'
 
 const Connexion = () => {
+
     return(
         <Fragment>
-            <h2>Connexion</h2>
+            <div className='bloc_connexion'>
+                <h2>Connexion</h2>
 
-                <form className='connexion' method='post' action=''> 
-                    <label htmlFor='email'>Votre adresse mail </label>
-                    <input type='email' name='email' id='email' required size='100px' placeholder='prénom.nom@groupomania.com'></input>
-                    <p>Veuillez entrer l'adresse mail utilisé dans le cadre de vos fonctions.</p>
-                    <input className='connexion_validation' type='submit' value='Connexion'></input>
+                    <form className='connexion' method='POST' action='accueil.html'>
+
+                        <label htmlFor='email'>Votre adresse mail </label>
+                        <input type='email' name='email' id='email' required size='100px' placeholder='prénom.nom@groupomania.com'></input>
+
+                        <label htmlFor='password'>Votre mot de passe</label>
+                        <input type='password' name='password' id='password' required minLength='5' maxLength='15'></input>
+
+                        <input className='connexion_validation' type='submit' value='Connexion'></input>
+
+                    </form>
+
                     
-                    <label htmlFor='password'>Votre mot de passe</label>
-                    <input type='text' name='password' id='password' required size='50px'></input>
-
-                </form>
+            </div>
         </Fragment>
     )
 }

@@ -7,15 +7,21 @@ import Connexion from './components/Connexion'
 
 class App extends Component {
   render(){
+   
     return(
       <Fragment>
-       <Logo />
-
+        <header>
+          <Logo />
+        </header>
+        <div className='inscription_connexion'>
           <Inscription />
+          <p className='choix_clique'><strong>Veuillez cliquer sur <button className='choix_inscription'>Inscription</button> ou <button className='choix_connexion'>Connexion</button></strong></p>
           <Connexion />
+        </div>
       </Fragment>
     )
   }
 }
-
 export default App
+
+    

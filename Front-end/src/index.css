@@ -5,6 +5,69 @@ body {
 
 /* ---------TITRES-------- */
 
-h1 {
+h1,
+h2 {
     text-align: center;
+}
+
+
+/* ---------HEADER-------- */
+
+header {
+    background-color: #ffd7d7;
+    margin: 0px;
+    padding: 30px;
+    border: 2px double gray;
+    box-shadow: 1px 1px 12px grey;
+}
+
+
+/* ----------BODY---------- */
+
+.inscription_connexion {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.bloc_inscription,
+.bloc_connexion {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+
+.connexion,
+.inscription {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.connexion_validation,
+.inscription_validation {
+    margin: 50px 0px;
+    width: 10vw;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    background-color: #ffd7d7;
+    transform: scale(1);
+    transition: 0.7s;
+}
+
+.connexion_validation:hover,
+.inscription_validation:hover {
+    background-color: #555cae;
+    color: white;
+    transform: scale(1.15);
+    transition: 0.7s;
+}
+
+label {
+    margin: 10px;
+}
+
+.choix_clique {
+    display: flex;
+    align-items: center;
 }

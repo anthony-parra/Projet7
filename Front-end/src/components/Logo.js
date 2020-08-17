@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import Image from '../images/image_titre.svg'
+import Image from '../images/image_logo.svg'
 
 const Logo = () => {
     return(
