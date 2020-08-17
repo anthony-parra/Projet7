@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import Image from '../images/image_logo.svg'
 
+
 const Logo = () => {
     return(
         <Fragment>
@@ -9,4 +10,4 @@ const Logo = () => {
     )
 }
 
-export default Logo
+export default Logo 
