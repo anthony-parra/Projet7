@@ -7,7 +7,7 @@ const Inscription = () => {
             <div className='bloc_inscription'>
                                   <h2>Inscription</h2>
 
-                                      <form className='inscription' method='POST' action='accueil.html'> 
+                                      <form className='inscription' method='POST' action=''> 
                                       
                                           <label htmlFor='email'>Votre adresse mail </label>
                                           <input type='email' name='email' id='email' required size='100px' placeholder='prénom.nom@groupomania.com'></input>

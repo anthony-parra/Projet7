@@ -5,6 +5,7 @@ class AppAccueil extends Component {
      
       return(
         <Fragment>
+          <div>Bienvenue sur la Page Accueil !</div>
         </Fragment>
       )
     }

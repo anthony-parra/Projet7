@@ -4,7 +4,6 @@ const mysql = require('mysql');
 const config = require('./config/config');
 
 
-
 // Connexion à la BDD MySQL
 console.log('Connexion en cours, veuillez patienter...');
 

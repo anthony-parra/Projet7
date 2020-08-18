@@ -7,7 +7,7 @@ const Connexion = () => {
             <div className='bloc_connexion'>
                         <h2>Connexion</h2>
 
-                            <form className='connexion' method='POST' action='accueil.html'>
+                            <form className='connexion' method='POST' action=''>
 
                                 <label htmlFor='email'>Votre adresse mail </label>
                                 <input type='email' name='email' id='email' required size='100px' placeholder='prénom.nom@groupomania.com'></input>
