@@ -23,7 +23,7 @@ class Connexion extends Component {
     render(){
 
         if(this.state.accueil){
-            return <Redirect to = {`/accueil/${this.state.email}`}></Redirect>
+            return <Redirect push to = {`/accueil/${this.state.email}`}></Redirect>
         }
 
         return(

@@ -24,6 +24,8 @@ connectionMysql.connect(function(error) {
 
 //Appliquer le CORS pour travailler sur deux localhost différents
 
+const app = express();
+
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'Origin');
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
@@ -32,7 +34,6 @@ app.use((req, res, next) => {
 });
 
 
-const app = express();
 app.use(bodyParser.json());
 
 module.exports = app;
