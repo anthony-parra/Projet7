@@ -1,9 +1,8 @@
 import React, {Component, Fragment} from 'react'
-import './App.css'
 import Logo from './components/Logo'
 import LogoIndex from './components/LogoIndex'
-import Inscription from './components/Inscription'
-import Connexion from './components/Connexion'
+import Inscription from './Inscription'
+import Connexion from './Connexion'
 
 
 class App extends Component {
@@ -37,7 +36,7 @@ handleShowInscription = () => {
           {
             isShowConnexion ? <Connexion /> : <LogoIndex />
           }
-          
+
           <p className='choix_clique'><strong>Veuillez cliquer sur <br/>
           <button className='choix_inscription' onClick={ this.handleShowConnexion} > Connexion </button>
           <button className='choix_connexion' onClick={ this.handleShowInscription}> Inscription </button></strong></p>
