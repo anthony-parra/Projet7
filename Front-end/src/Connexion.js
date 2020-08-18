@@ -18,8 +18,6 @@ class Connexion extends Component {
         this.setState({ accueil : true })
     }
 
-
-
     render(){
 
         if(this.state.accueil){
