@@ -1,7 +1,8 @@
 module.exports = app => {
     const user = require("../controllers/user.js");
   
-    // Create a new Customer
     app.post("/user", user.create);
+    app.delete("/user/:userId", user.delete);
+    app.get("/user/:userId", user.findOne);
   
   };
