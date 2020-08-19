@@ -12,9 +12,24 @@ User.create = (newUser, result) => {
       result(err, null);
       return;
     }
-
     console.log("Création de l'utilisateur : ", { id: res.insertId, ...newUser });
     result(null, { id: res.insertId, ...newUser });
+  });
+}
+
+User.findById = (userId, result) => {
+  sql.query(`SELECT * FROM Inscription WHERE id = ${userId}`, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(err, null);
+      return;
+    }
+    if (res.length) {
+      console.log("Utilisateur trouvé: ", res[0]);
+      result(null, res[0]);
+      return;
+    }
+    result({ kind: "Non trouvé !" }, null);
   });
 };
 
@@ -25,34 +40,15 @@ User.remove = (id, result) => {
       result(null, err);
       return;
     }
-
     if (res.affectedRows == 0) {
-    
-      result({ kind: "Utilisateur non trouvé !" }, null);
+      result({ kind: "Non trouvé !" }, null);
       return;
     }
-
-    console.log("Suppression de l'utilisateur avec : ", id);
+    console.log("Suppression de l'utilisateur avec l'id : ", id);
     result(null, res);
   });
 };
 
-User.findById = (userId, result) => {
-  sql.query(`SELECT * FROM Inscription WHERE id = ${userId}`, (err, res) => {
-    if (err) {
-      console.log("error: ", err);
-      result(err, null);
-      return;
-    }
 
-    if (res.length) {
-      console.log("Utilisateur trouvé ! : ", res[0]);
-      result(null, res[0]);
-      return;
-    }
-
-    result({ kind: "Non trouvé !" }, null);
-  });
-};
 
 module.exports = User;

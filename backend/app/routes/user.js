@@ -1,7 +1,9 @@
 module.exports = app => {
-    const user = require("../controllers/user.js");
+    const userControllers = require("../controllers/user.js");
+    //const auth = require('../middleware/auth');
   
-    app.post("/user", user.signup);
-    app.get("/user/:userId", user.login);
-    app.delete("/user/:userId", user.delete);
-  };
+    app.post("/signup", userControllers.signup);
+    app.post("/login/:userId", userControllers.login);
+    app.delete("/user/:userId", userControllers.delete);
+
+  }
