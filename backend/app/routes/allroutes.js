@@ -17,6 +17,7 @@ module.exports = app => {
     const gifControllers = require('../controllers/gif.js');
 
     app.post("/createGif", gifControllers.createGif);
+    app.delete("/deleteGif/:gifId", gifControllers.deleteGif);
 
     
 

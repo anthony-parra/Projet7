@@ -16,3 +16,16 @@ exports.createGif = (req, res) => {
             else res.send(data);
             });
      }
+
+exports.deleteGif = (req, res) => {
+
+    Gif.remove(req.params.gifId, (err, data) => {
+        if (err) {
+        if (err.kind === "Non trouvé !") {
+            res.status(404).json({ message : 'Gif introuvable avec l\'id : ' + req.params.gifId})
+        } else {
+            res.status(500).json({ message :'Gif introuvable avec l\'id : ' + req.params.gifId}) 
+            }
+        } else res.json({ message : 'Gif supprimé avec succès !'}) 
+    })
+}
