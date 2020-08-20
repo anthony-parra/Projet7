@@ -9,14 +9,16 @@ module.exports = app => {
 
     // ROUTE CRÉATION ARTICLE !!
     const articleControllers = require ('../controllers/article.js');
+    const multer = require('../middleware/multer-config');
+    const auth = require('../middleware/auth');
     
-    app.post("/create", articleControllers.create);
-    app.delete("/article/:articleId", articleControllers.delete);
+    app.post("/create",auth ,articleControllers.create);
+    app.delete("/article/:articleId",auth ,articleControllers.delete);
 
     // ROUTE CRÉATION DES GIFS !!
     const gifControllers = require('../controllers/gif.js');
-
-    app.post("/createGif", gifControllers.createGif);
-    app.delete("/deleteGif/:gifId", gifControllers.deleteGif);
+    
+    app.post("/createGif",auth, multer, gifControllers.createGif);
+    app.delete("/deleteGif/:gifId",auth, gifControllers.deleteGif);
 
   }

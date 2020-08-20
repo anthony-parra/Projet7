@@ -4,7 +4,7 @@ const MIME_TYPES = {
     'image/gif': 'gif',
 };
 
-const storage = multer.memoryStorage({
+const storage = multer.diskStorage({
     destination: (req, file, callback) => {
         callback(null, 'images');
     },

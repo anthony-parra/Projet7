@@ -7,14 +7,16 @@ exports.createGif = (req, res) => {
     if (!req.body) {
       res.status(400).json({ message : 'Erreur !'})
       }
-        const gif = new Gif ({
-        gif: req.body.gif
-      })
-        Gif.create(gif, (err, data) => {
-            if (err)
-                res.status(500).json({ message : 'Gif non crée !'})
-            else res.send(data);
-            });
+        const gifObject = JSON.parse(req.body.gif);
+        const gif = new Gif({
+            ...gifObject,
+            gifDownload: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+        });
+            Gif.create(gif, (err, data) => {
+                if (err)
+                    res.status(500).json({ message : 'Gif non crée !'})
+                else res.send(data);
+                });
      }
 
 exports.deleteGif = (req, res) => {
