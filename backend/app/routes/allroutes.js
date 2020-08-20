@@ -19,6 +19,4 @@ module.exports = app => {
     app.post("/createGif", gifControllers.createGif);
     app.delete("/deleteGif/:gifId", gifControllers.deleteGif);
 
-    
-
   }

@@ -24,12 +24,14 @@ User.findById = (userId, result) => {
       result(err, null);
       return;
     }
+
     if (res.length) {
-      console.log("Utilisateur trouvé: ", res[0]);
+      console.log("Utilisateur trouvé : ", res[0]);
       result(null, res[0]);
       return;
     }
-    result({ kind: "Non trouvé !" }, null);
+
+  result({ kind: "Non trouvé !" }, null);
   });
 };
 
