@@ -4,7 +4,7 @@ module.exports = app => {
     const userControllers = require("../controllers/user.js");
     
     app.post("/signup", userControllers.signup);
-    app.post("/login/:userId", userControllers.login);
+    app.post("/login", userControllers.login);
     app.delete("/user/:userId", userControllers.delete);
 
     // ROUTE CRÉATION ARTICLE !!

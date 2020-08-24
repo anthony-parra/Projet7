@@ -17,8 +17,8 @@ User.create = (newUser, result) => {
   });
 }
 
-User.findById = (userId, result) => {
-  sql.query(`SELECT * FROM Inscription WHERE id = ${userId}`, (err, res) => {
+User.findOne = (email, result) => {
+  sql.query(`SELECT * FROM Inscription WHERE email`, email, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);

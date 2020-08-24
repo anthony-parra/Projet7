@@ -29,24 +29,26 @@ exports.signup = (req, res) => {
 process.env.SECRET_KEY = 'LA_CLE_SECRETE'
 
 exports.login = (req, res) => {
-
-  User.findById(req.params.userId, (user) => {
-
-    if (!user) {
-      return res.status(401).json({ error: 'Utilisateur non trouvé !' });
-    } 
-    bcrypt.compare(req.params.password, user.password)
-      .then(valid => {
-        if (!valid) {
-          return res.status(401).json({ error: 'Mot de passe incorrect !' });
+  User.findOne({
+    where: {
+      email: req.body.email
+    }
+  })
+    .then(user => {
+      if (user) {
+        if (bcrypt.compareSync(req.body.password, user.password)) {
+          let token = jsonWebToken.sign(user.dataValues, process.env.SECRET_KEY, {
+            expiresIn: 1440
+          })
+          res.send(token)
         }
-        let token = jsonWebToken.sign(user.dataValues, process.env.SECRET_KEY, {
-          expiresIn: 1440
-        })
-        res.send(token)
+      } else {
+        res.status(400).json({ error: 'User does not exist' })
       }
-    ).catch(error => res.status(500).json({ error }));
-  });
+    })
+    .catch(err => {
+      res.status(400).json({ error: err })
+    })
 }
   
 // SUPPRESSION D'UN UTILISATEUR

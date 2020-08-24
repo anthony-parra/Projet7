@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react'
-import Logo from './components/Logo'
+import Headers from './components/Headers/headers.js'
 import LogoIndex from './components/LogoIndex'
 import Inscription from './Inscription'
 import Connexion from './Connexion'
@@ -28,9 +28,9 @@ handleShowInscription = () => {
 
     return(
       <Fragment>
-        <header>
-          <Logo />
-        </header>
+        
+          <Headers />
+        
         <div className='inscription_connexion'>
 
           {

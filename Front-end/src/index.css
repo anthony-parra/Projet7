@@ -3,25 +3,6 @@ body {
 }
 
 
-/* ---------TITRES-------- */
-
-h1,
-h2 {
-    text-align: center;
-}
-
-
-/* ---------HEADER-------- */
-
-header {
-    background-color: #ffd7d7;
-    margin: 0px;
-    padding: 30px;
-    border: 2px double gray;
-    box-shadow: 1px 1px 12px grey;
-}
-
-
 /* ----------BODY---------- */
 
 .inscription_connexion {
