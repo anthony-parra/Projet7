@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import PageNonTrouve from './components/PageNonTrouve/PageNonTrouve'
+import AppAccueil from './AppAccueil'
+import PageNonTrouve from './components/Index/PageNonTrouve/PageNonTrouve'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 
@@ -11,7 +12,7 @@ const Root = () => (
     <BrowserRouter>
       <Switch>
         <Route exact path = '/' component = { App }/>
-        <Route path='/Accueil' component = { App }/>
+        <Route path='/Accueil' component = { AppAccueil }/>
         <Route component = { PageNonTrouve }/>   
       </Switch>
     </BrowserRouter>

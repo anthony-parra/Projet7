@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import LogoIndex from '../Body/LogoPageAccueil/LogoIndex'
+import LogoIndex from '../Body/LogoPageIndex/LogoIndex'
 import Connexion from './Connexion-Inscription/connexion'
 import Inscription from './Connexion-Inscription/inscription'
 

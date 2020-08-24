@@ -1,9 +1,10 @@
 import React, {Component, Fragment} from 'react'
 import Headers from './components/Index/Headers/headers.js'
-import Body from './components/Index/Body/body'
+import BodyAccueil from './components/Accueil/Body/bodyAccueil'
 
 
-class App extends Component {
+
+class AppAccueil extends Component {
 
   render(){
 
@@ -11,14 +12,12 @@ class App extends Component {
       
       <Fragment>
         
-          <Headers />
+        <Headers />
 
-          <Body />
+         <BodyAccueil />
           
       </Fragment>
     )
   }
 }
-export default App
-
-    
+export default AppAccueil

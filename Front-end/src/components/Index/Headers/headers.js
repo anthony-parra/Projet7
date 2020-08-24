@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import Image from '../../images/image_logo.svg'
+import Image from '../../../images/image_logo.svg'
 import './headers.css'
 
 
