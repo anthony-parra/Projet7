@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './AppAccueil';
 import PageNonTrouve from './components/PageNonTrouve/PageNonTrouve'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 

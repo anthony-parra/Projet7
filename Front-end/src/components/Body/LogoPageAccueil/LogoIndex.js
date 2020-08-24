@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
-import ImageIndex from '../images/icon.svg'
+import ImageIndex from '../../../images/icon.svg'
+import '../LogoPageAccueil/LogoIndex.css'
 
 
 const LogoIndex = () => {
