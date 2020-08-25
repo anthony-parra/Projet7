@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react'
 import Headers from './components/Index/Headers/headers.js'
-import BodyAccueil from './components/Accueil/Body/bodyAccueil'
+import BodyAccueil from './components/Accueil/bodyAccueil'
 
 
 

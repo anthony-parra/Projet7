@@ -1,3 +1,7 @@
+h2 {
+    text-align: center;
+}
+
 .inscription_connexion {
     display: flex;
     justify-content: space-evenly;
@@ -11,17 +15,17 @@
     margin-top: 100px;
 }
 
-.connexion,
-.inscription {
+#connexion,
+#inscription {
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
-.choix_inscription,
-.choix_connexion,
-.connexion_validation,
-.inscription_validation {
+#choix_inscription,
+#choix_connexion,
+#connexion_validation,
+#inscription_validation {
     margin: 30px;
     width: 10vw;
     margin-left: auto;
@@ -34,8 +38,8 @@
     justify-content: center;
 }
 
-.connexion_validation:hover,
-.inscription_validation:hover {
+#connexion_validation:hover,
+#inscription_validation:hover {
     background-color: #555cae;
     color: white;
     transform: scale(1.15);

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Redirect } from 'react-router-dom'
-import '../Connexion-Inscription/connexion-inscription.css'
+import './connexion-inscription.css'
 
 class Inscription extends Component {
 
@@ -31,7 +31,7 @@ class Inscription extends Component {
                 <div className='bloc_inscription'>
                                     <h2>Inscription</h2>
 
-                                        <form className='inscription' onSubmit={ this.handleSubmit }> 
+                                        <form id='inscription' onSubmit={ this.handleSubmit }> 
                                         
                                             <label htmlFor='email'>Votre adresse mail </label>
                                             <input value={this.state.email}
@@ -43,7 +43,7 @@ class Inscription extends Component {
                                             <label htmlFor='password'>Votre mot de passe</label>
                                             <input type='password' name='password' id='password' required minLength='5' maxLength='15'></input>
 
-                                            <input className='inscription_validation' type='submit' value='Inscription'></input>
+                                            <input id='inscription_validation' type='submit' value='Inscription'></input>
 
                                         </form>
                             

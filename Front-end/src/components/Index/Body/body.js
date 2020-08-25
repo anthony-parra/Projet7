@@ -36,8 +36,8 @@ class Body extends Component {
                         }
 
                         <p className='choix_clique'><strong>Veuillez cliquer sur <br/>
-                        <button className='choix_inscription' onClick={ this.handleShowConnexion} > Connexion </button>
-                        <button className='choix_connexion' onClick={ this.handleShowInscription}> Inscription </button></strong></p>
+                        <button id='choix_inscription' onClick={ this.handleShowConnexion} > Connexion </button>
+                        <button id='choix_connexion' onClick={ this.handleShowInscription}> Inscription </button></strong></p>
                         
                         {
                             isShowInscription ? <Inscription /> : <LogoIndex />

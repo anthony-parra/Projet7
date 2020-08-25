@@ -26,30 +26,29 @@ exports.signup = (req, res) => {
 
 // CONNEXION AVEC UN UTILISATEUR DÉJÀ CRÉE
 
-process.env.SECRET_KEY = 'LA_CLE_SECRETE'
 
 exports.login = (req, res) => {
-  User.findOne({
-    where: {
-      email: req.body.email
+  User.findOne(req.body.email, (err, user) => {
+    if(err){
+      res.status(400).json({ message : err })
     }
-  })
-    .then(user => {
-      if (user) {
-        if (bcrypt.compareSync(req.body.password, user.password)) {
-          let token = jsonWebToken.sign(user.dataValues, process.env.SECRET_KEY, {
-            expiresIn: 1440
+    if (user) {
+        bcrypt.compare(req.body.password, user.password)
+        .then(valid => {
+            if(!valid){
+              res.status(401).json({ message : 'Mot de passe incorrect !' })
+            }
+            res.status(200).json({
+              userId : user.id, 
+              token : jsonWebToken.sign({ userId : user.id }, 'LA_CLE_SECRETE', {
+              expiresIn: '24h'
           })
-          res.send(token)
-        }
-      } else {
-        res.status(400).json({ error: 'User does not exist' })
-      }
-    })
-    .catch(err => {
-      res.status(400).json({ error: err })
-    })
-}
+
+            })
+        })  
+        }}
+        )}
+      
   
 // SUPPRESSION D'UN UTILISATEUR
 
