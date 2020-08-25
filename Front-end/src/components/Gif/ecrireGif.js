@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import Headers from '../Index/Headers/headers'
+import FormulaireGif from '../Gif/formulaireGif'
 
 class EcrireGif extends Component {
     render(){
@@ -7,7 +8,7 @@ class EcrireGif extends Component {
 
             <Fragment>
                 <Headers />
-                <h1>POUET 2</h1>
+                <FormulaireGif />
             </Fragment>
 
         )
