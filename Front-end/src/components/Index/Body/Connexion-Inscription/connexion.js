@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Redirect } from 'react-router-dom'
-import '../Connexion-Inscription/connexion-inscription.css'
+import './connexion-inscription.css'
 
 class Connexion extends Component {
 

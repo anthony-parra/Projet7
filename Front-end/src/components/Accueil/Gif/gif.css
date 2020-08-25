@@ -1,0 +1,18 @@
+#image_gif {
+    box-shadow: 1px 1px 12px gray;
+    padding: 10px;
+    transform: scale(1);
+    transition: 0.7s;
+}
+
+#image_gif:hover {
+    transform: scale(1.10);
+    transition: 0.7s;
+    box-shadow: 1px 1px 12px blue;
+}
+
+#titre_gif {
+    text-align: center;
+    font-weight: bold;
+    padding-top: 60px;
+}
