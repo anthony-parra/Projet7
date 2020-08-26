@@ -1,6 +1,6 @@
 const sql = require("../../connexion");
 
-const User = function(user) {
+const User = (user) => {
   this.email = user.email,
   this.nom = user.nom,
   this.prenom = user.prenom,

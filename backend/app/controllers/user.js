@@ -20,10 +20,10 @@ exports.signup = (req, res) => {
             })
             User.create(user, (err, data) => {
             if (err)
-                res.status(500).json({ message : 'Utilisateur non crée !'})
+                res.status(500).json({ message : 'Utilisateur non crée !' + err})
             else res.send(data);
-            });
-     }).catch(error => res.status(500).json({ message : 'Il y a une erreur :' + error }))
+            })
+     }).catch(err => res.status(500).json({ message : 'Il y a une erreur :' + err }))
 }
 
 // CONNEXION AVEC UN UTILISATEUR DÉJÀ CRÉE

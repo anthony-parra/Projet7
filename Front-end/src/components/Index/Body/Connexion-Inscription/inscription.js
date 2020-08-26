@@ -4,28 +4,32 @@ import './connexion-inscription.css'
 class Inscription extends Component {
 
     handleSubmit = (event) => {
-        const data = new FormData( event.target )
         event.preventDefault()
+        const data = new FormData( event.target )
+        
+        function envoieDonnees (url) {
 
-            fetch('http://localhost:3000/api/auth/signup',{
+            fetch( url , {
                 method: 'POST',
-                body: data,
+                body: data
             })
-                .then((response, error) => {
-                    if(error){
-                        console.log('Il y a une erreur de type :' + error)
-                    } 
-                    return response.json(console.log(response))
-                })
-                .then((jsonData, error) => {
-                    if(error){
-                        console.log('Il y a une erreur de type :' + error)
-                    }
-                    return JSON.stringify(jsonData);
-                })
-                .catch((error) => {
-                    console.log({ message : 'Erreur :' + error })
-                })
+            .then((response, error) => {
+                if(error){
+                    console.log('Il y a une erreur de type :' + error)
+                } 
+                return response.json()
+            })
+            .then((jsonData, error) => {
+                if(error){
+                    console.log('Il y a une erreur de type :' + error)
+                }
+                return JSON.stringify(jsonData);
+            })
+            .catch((error) => {
+                console.log({ message : 'Erreur :' + error })
+            })
+        }
+        envoieDonnees('http://localhost:3000/api/auth/signup')
     }
         
     render(){
