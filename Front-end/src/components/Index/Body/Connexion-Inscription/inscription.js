@@ -4,39 +4,39 @@ import './connexion-inscription.css'
 class Inscription extends Component {
 
     handleSubmit = (event) => {
+        const data = new FormData( event.target )
         event.preventDefault()
-        const myForm = document.getElementById('inscriptionFormulaire')
-        const inscriptionUser = new FormData(myForm)
 
-            fetch({
+            fetch('http://localhost:3000/api/auth/signup',{
                 method: 'POST',
-                url:'http://localhost:3000/api/auth',
-                headers: { 'Content-Type': 'application/json;charset=utf-8' },
-                body: JSON.stringify(inscriptionUser)
+                body: data,
             })
-                .then((respons, error) => {
-                    console.log({ message : 'Première  :' + error})
-                    return respons.json() 
+                .then((response, error) => {
+                    if(error){
+                        console.log('Il y a une erreur de type :' + error)
+                    } 
+                    return response.json(console.log(response))
                 })
                 .then((jsonData, error) => {
-                    console.log({ message : 'Deuxième + :' + error})
+                    if(error){
+                        console.log('Il y a une erreur de type :' + error)
+                    }
                     return JSON.stringify(jsonData);
                 })
                 .catch((error) => {
-                    console.log({ message : 'Troisième :' + error })
+                    console.log({ message : 'Erreur :' + error })
                 })
     }
         
     render(){
-
     
         return(
 
             <Fragment>
-                <div className='bloc_inscription'>
+                <div className='bloc_inscription'> 
                     <h2>Inscription</h2>
 
-                        <form id='inscriptionFormulaire' onSubmit = {this.handleSubmit} > 
+                        <form id='inscriptionFormulaire' onSubmit = { this.handleSubmit }> 
                         
                             <label htmlFor='email'>Votre adresse mail </label>
                             <input type='email' name='email' id='email' required placeholder='prénom.nom@groupomania.com'></input>
