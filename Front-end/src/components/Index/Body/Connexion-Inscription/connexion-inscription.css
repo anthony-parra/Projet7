@@ -7,6 +7,12 @@ h2 {
     justify-content: space-evenly;
 }
 
+#inscriptionFormulaire {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
 .bloc_connexion,
 .bloc_inscription {
     display: flex;

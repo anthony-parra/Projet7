@@ -8,7 +8,8 @@ exports.create = (req, res) => {
       res.status(400).json({ message : 'Erreur !'})
       }
         const article = new Article ({
-        article: req.body.article
+          titre: req.body.titre,
+          article: req.body.article
       })
         Article.create(article, (err, data) => {
             if (err)

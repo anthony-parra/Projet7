@@ -41,6 +41,12 @@ class Inscription extends Component {
                             <label htmlFor='email'>Votre adresse mail </label>
                             <input type='email' name='email' id='email' required placeholder='prénom.nom@groupomania.com'></input>
                             <p><strong>Veuillez entrer l'adresse mail utilisé dans le cadre de vos fonctions.</strong></p>
+
+                            <label htmlFor='nom'>Nom</label>
+                            <input type='text' name='nom' id='nom' required minLength='2' maxLength='20' ></input>
+
+                            <label htmlFor='prenom'>Prénom</label>
+                            <input type='text' name='prenom' id='prenom' required minLength='2' maxLength='20' ></input>
                             
                             <label htmlFor='password'>Votre mot de passe</label>
                             <input type='password' name='password' id='password' required minLength='5' maxLength='15'></input>

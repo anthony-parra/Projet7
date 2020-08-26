@@ -1,6 +1,7 @@
-const sql = require("../../app.js");
+const sql = require("../../connexion");
 
 const Article = function(e) {
+  this.titre = e.titre
   this.article = e.article
 };
 

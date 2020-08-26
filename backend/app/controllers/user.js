@@ -14,6 +14,8 @@ exports.signup = (req, res) => {
         .then(hash => {
            const user = new User({
                 email: req.body.email,
+                nom: req.body.nom,
+                prenom: req.body.prenom,
                 password: hash
             })
             User.create(user, (err, data) => {
