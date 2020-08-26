@@ -1,7 +1,7 @@
-const sql = require("../../app.js");
+const sql = require("../../connexion");
 
 const User = function(user) {
-  this.email = user.email
+  this.email = user.email,
   this.password = user.password
 };
 

@@ -1,19 +1,16 @@
-const mysql = require("mysql");
-const config = require("./app/config/config.js");
+const express = require('express');
+const bodyParser = require('body-parser');
 
-// Création de la connexion à MySQL
-const connection = mysql.createConnection({
-  host: config.HOST,
-  user: config.USER,
-  password: config.PASSWORD,
-  database: config.DB,
-  port: config.PORT
-});
+const userRoutes = require('./app/routes/user');
+const articleRoutes = require('./app/routes/article');
 
-// Connection à MySQL
-connection.connect(error => {
-  if (error) throw error;
-  console.log("Vous êtes connecté à la BDD !");
-});
+const app = express();
 
-module.exports = connection;
+//NE RIEN MODIFIER AU DESSUS
+
+app.use(bodyParser.json()); //Permet de transformer les requêtes en JSON
+
+app.use('/api/auth', userRoutes);
+app.use('/api/article', articleRoutes);
+
+module.exports = app;

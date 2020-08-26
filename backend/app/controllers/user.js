@@ -21,11 +21,10 @@ exports.signup = (req, res) => {
                 res.status(500).json({ message : 'Utilisateur non crée !'})
             else res.send(data);
             });
-     }).catch(error => res.status(500).json({ error }));
+     }).catch(error => res.status(500).json({ message : 'Il y a une erreur :' + error }))
 }
 
 // CONNEXION AVEC UN UTILISATEUR DÉJÀ CRÉE
-
 
 exports.login = (req, res) => {
   User.findOne(req.body.email, (err, user) => {
@@ -42,14 +41,12 @@ exports.login = (req, res) => {
               userId : user.id, 
               token : jsonWebToken.sign({ userId : user.id }, 'LA_CLE_SECRETE', {
               expiresIn: '24h'
+              })
           })
-
-            })
         })  
-        }}
-        )}
+    }}
+  )}
       
-  
 // SUPPRESSION D'UN UTILISATEUR
 
 exports.delete = (req, res) => {

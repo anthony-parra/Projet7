@@ -6,7 +6,6 @@ import AppAccueil from './AppAccueil'
 import PageNonTrouve from './components/Index/PageNonTrouve/PageNonTrouve'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import EcrireArticle from './components/Article/ecrireArticle'
-import EcrireGif from './components/Gif/ecrireGif'
 
 
 const Root = () => (
@@ -16,7 +15,6 @@ const Root = () => (
         <Route exact path = '/' component = { App }/>
         <Route path='/accueil' component = { AppAccueil }/>
         <Route path='/article' component = { EcrireArticle }/>
-        <Route path='/gif' component = { EcrireGif }/>
         <Route component = { PageNonTrouve }/>   
       </Switch>
     </BrowserRouter>
