@@ -1,11 +1,11 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment, Component } from 'react'
 import LogoIndex from '../Body/LogoPageIndex/LogoIndex'
 import Connexion from './Connexion-Inscription/connexion'
 import Inscription from './Connexion-Inscription/inscription'
 
 class Body extends Component {
 
-    state = {
+      state = {
         isShowConnexion: false,
         isShowInscription: false
       }
@@ -15,15 +15,15 @@ class Body extends Component {
         this.setState({ isShowConnexion })
       }
       
-      handleShowInscription = () => {
+      handleShowInscription = () =>  {
         const isShowInscription = !this.state.isShowInscription
         this.setState({ isShowInscription })
       }
     
-    render(){
+      render() {
 
-          const { isShowInscription } = this.state
-          const { isShowConnexion } = this.state
+      const { isShowInscription } = this.state
+      const { isShowConnexion } = this.state
 
         return(
         
@@ -36,8 +36,8 @@ class Body extends Component {
                         }
 
                         <p className='choix_clique'><strong>Veuillez cliquer sur <br/>
-                        <button id='choix_connexion' onClick={ this.handleShowConnexion} > Connexion </button>
-                        <button id='choix_inscription' onClick={ this.handleShowInscription}> Inscription </button></strong></p>
+                        <button id='choix_connexion' onClick = { this.handleShowConnexion } > Connexion </button>
+                        <button id='choix_inscription' onClick = { this.handleShowInscription } > Inscription </button></strong></p>
                         
                         {
                             isShowInscription ? <Inscription /> : <LogoIndex />
@@ -48,7 +48,7 @@ class Body extends Component {
         </Fragment>
 
         )
-    } 
-}
+      }
+    }
 
 export default Body

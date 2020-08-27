@@ -11,11 +11,8 @@ class AppAccueil extends Component {
     return(
       
       <Fragment>
-        
         <Headers />
-
-         <BodyAccueil />
-          
+        <BodyAccueil />  
       </Fragment>
     )
   }

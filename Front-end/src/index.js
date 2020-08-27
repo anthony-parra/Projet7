@@ -15,7 +15,7 @@ const Root = () => (
         <Route exact path = '/' component = { App }/>
         <Route path='/accueil' component = { AppAccueil }/>
         <Route path='/article' component = { EcrireArticle }/>
-        <Route component = { PageNonTrouve }/>   
+        <Route component = { PageNonTrouve }/>
       </Switch>
     </BrowserRouter>
 )

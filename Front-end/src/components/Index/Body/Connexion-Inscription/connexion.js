@@ -1,28 +1,23 @@
 import React, { Component, Fragment } from 'react'
 import './connexion-inscription.css'
+import { Redirect } from 'react-router-dom'
 
 class Connexion extends Component {
 
-   /* state = {
-        email : '',
+    state = {
         accueil : false
     }
 
-    handleChange = event => {
-        const email = event.target.value
-        this.setState({ email })
-    }
-
-    handleSubmit = event => {
+    handleSubmit = (event) => {
         event.preventDefault()
         this.setState({ accueil : true })
-    }*/
+    }
 
     render(){
 
-        /*if(this.state.accueil){
-            return <Redirect push to = {`/accueil/`}></Redirect>
-        }*/
+        if(this.state.accueil){
+            return <Redirect push to = '/accueil'></Redirect>
+        }
 
         return(
 
@@ -31,7 +26,7 @@ class Connexion extends Component {
                     <div className='bloc_connexion'>
                                 <h2>Connexion</h2>
 
-                                    <form id = 'connexion' >
+                                    <form id = 'connexion' onClick = { this.handleSubmit }>
 
                                         <label htmlFor='email'>Votre adresse mail </label>
                                         <input type='email' name='email' id='email' required placeholder='prénom.nom@groupomania.com'></input>

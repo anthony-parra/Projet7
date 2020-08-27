@@ -1,46 +1,46 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment, Component } from 'react'
 import './connexion-inscription.css'
 
 class Inscription extends Component {
 
-    handleSubmit = (event) => {
-        event.preventDefault()
-        const data = new FormData( event.target )
-        
-        function envoieDonnees (url) {
-
-            fetch( url , {
-                method: 'POST',
-                body: data
-            })
-            .then((response, error) => {
-                if(error){
-                    console.log('Il y a une erreur de type :' + error)
-                } 
-                return response.json()
-            })
-            .then((jsonData, error) => {
-                if(error){
-                    console.log('Il y a une erreur de type :' + error)
-                }
-                return JSON.stringify(jsonData);
-            })
-            .catch((error) => {
-                console.log({ message : 'Erreur :' + error })
-            })
-        }
-        envoieDonnees('http://localhost:3000/api/auth/signup')
-    }
-        
     render(){
+
+        function handleSubmit(event) {
+            event.preventDefault()
+            const data = new FormData( event.target )
+            
+            function envoieDonnees (url){
     
+                fetch( url , {
+                    method: 'POST',
+                    body: data
+                })
+                .then((response, error) => {
+                    if(error){
+                        console.log('Il y a une erreur de type :' + error)
+                    } 
+                    return response.json()
+                })
+                .then((jsonData, error) => {
+                    if(error){
+                        console.log('Il y a une erreur de type :' + error)
+                    }
+                    return JSON.stringify(jsonData);
+                })
+                .catch((error) => {
+                    console.log({ message : 'Erreur :' + error })
+                })
+            }
+            envoieDonnees('http://localhost:3000/api/auth/signup')
+        }
+
         return(
 
             <Fragment>
                 <div className='bloc_inscription'> 
                     <h2>Inscription</h2>
 
-                        <form id='inscriptionFormulaire' onSubmit = { this.handleSubmit }> 
+                        <form id='inscriptionFormulaire' onSubmit = {() => handleSubmit() }> 
                         
                             <label htmlFor='email'>Votre adresse mail </label>
                             <input type='email' name='email' id='email' required placeholder='prénom.nom@groupomania.com'></input>

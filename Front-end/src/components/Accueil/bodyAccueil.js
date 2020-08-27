@@ -1,11 +1,13 @@
 import React, { Fragment } from 'react'
-import Article from '../Article/ecrireArticle'
+import Formulaire from '../Article/formulaireArticle'
+import Image from '../../images/icon.png'
 
 const BodyAccueil = () => {
     return(
 
         <Fragment>
-            <Article />
+            <h2><img src={Image} alt='Logo de Groupomania'></img>Fil d'actualité</h2>
+            <Formulaire />
         </Fragment>
 
     )

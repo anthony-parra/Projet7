@@ -4,12 +4,14 @@ import Body from './components/Index/Body/body'
 
 
 class App extends Component {
+
   render(){
+
     return(
       
       <Fragment>
           <Headers />
-          <Body />   
+          <Body />
       </Fragment>
     )
   }
