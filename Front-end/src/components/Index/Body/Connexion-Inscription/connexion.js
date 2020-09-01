@@ -26,7 +26,7 @@ class Connexion extends Component {
                     <div className='bloc_connexion'>
                                 <h2>Connexion</h2>
 
-                                    <form id = 'connexion' onClick = { this.handleSubmit }>
+                                    <form id = 'connexion'>
 
                                         <label htmlFor='email'>Votre adresse mail </label>
                                         <input type='email' name='email' id='email' required placeholder='prénom.nom@groupomania.com'></input>
@@ -34,7 +34,7 @@ class Connexion extends Component {
                                         <label htmlFor='password'>Votre mot de passe</label>
                                         <input type='password' name='password' id='password' required minLength='5' maxLength='15'></input>
 
-                                        <input id='connexion_validation' type='submit' value='Connexion'></input>
+                                        <input onSubmit = { this.handleSubmit } id='connexion_validation' type='submit' value='Connexion'></input>
 
                                     </form>         
                     </div>

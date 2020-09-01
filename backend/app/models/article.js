@@ -17,6 +17,18 @@ Article.create = (newArticle, result) => {
     });
   }
 
+  Article.getAll = result => {
+    sql.query("SELECT * FROM Article", (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
+  
+      console.log("article : ", res);
+      result(null, res);
+    });
+  };
 
   Article.remove = (id, result) => {
     sql.query("DELETE FROM Article WHERE id = ?", id, (err, res) => {
@@ -33,4 +45,5 @@ Article.create = (newArticle, result) => {
       result(null, res);
     });
   };
+
   module.exports = Article;

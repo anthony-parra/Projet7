@@ -3,8 +3,8 @@ const sql = require("../../connexion");
 const User = (user) => {
   this.email = user.email,
   this.nom = user.nom,
-  this.prenom = user.prenom,
-  this.password = user.password
+  this.password = user.password,
+  this.prenom = user.prenom
 };
 
 User.create = (newUser, result) => {

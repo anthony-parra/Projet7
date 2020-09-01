@@ -4,7 +4,8 @@ const router = express.Router();
 const auth = require('../middleware/auth');
 const articleControllers = require ('../controllers/article.js');
   
-router.post("/create",auth ,articleControllers.create);
-router.delete("/article/:articleId",auth ,articleControllers.delete);
+router.post('/create', articleControllers.create);
+router.get('/allArticle', articleControllers.findAll);
+router.delete('/:articleId', auth ,articleControllers.delete);
 
 module.exports = router;

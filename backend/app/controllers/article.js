@@ -18,6 +18,15 @@ exports.create = (req, res) => {
             });
      }
 
+exports.findAll = (req, res) => {
+
+  Article.getAll((err, data) => {
+    if (err)
+      res.status(500).send({ message: 'On a rien trouvé !' + err });
+    else res.send(data);
+  });
+};
+
      // SUPPRESSION D'UN ARTICLE
 
 exports.delete = (req, res) => {

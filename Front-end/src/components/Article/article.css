@@ -1,0 +1,93 @@
+h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid gray;
+    margin-bottom: 0px;
+}
+
+#soulignementTitre {
+    border-bottom: 2px solid #ffd7d7;
+}
+
+#blocContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#colonneGauche,
+#colonneDroite {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 20%;
+    border-right: 1px solid gray;
+    border-left: 1px solid gray;
+    background-color: #ffd7d7;
+}
+
+#formulaireArticle,
+#newArticle {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid gray;
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 12px gray;
+}
+
+textarea {
+    resize: none;
+}
+
+#blocArticle {
+    margin-bottom: 50px;
+}
+
+#titreArticle,
+#nomArticle,
+.commentaires {
+    text-align: center;
+    border-radius: 10px;
+    padding: 5px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#article {
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#allArticles {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+#boutonArticle,
+#boutonCommentaires {
+    margin: 30px;
+    width: 10vw;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    background-color: #ffd7d7;
+    transform: scale(1);
+    transition: 0.7s;
+    display: flex;
+    justify-content: center;
+}
+
+#boutonArticle:hover,
+#boutonCommentaires:hover {
+    background-color: #555cae;
+    color: white;
+    transform: scale(1.15);
+    transition: 0.7s;
+}
