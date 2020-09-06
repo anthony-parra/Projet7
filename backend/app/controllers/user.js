@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const User = require('../models/user');
+const User = require('./../models/user');
 const jsonWebToken = require('jsonwebtoken');
 
 
@@ -12,12 +12,13 @@ exports.signup = (req, res) => {
       }
     bcrypt.hash(req.body.password, 10)
         .then(hash => {
-           const user = new User({
-                email: req.body.email,
-                nom: req.body.nom,
-                password: hash,
-                prenom: req.body.prenom
-            })
+          console.log(hash)
+           const user = {
+                "email": req.body.email,
+                "nom": req.body.nom,
+                "password": hash,
+                "prenom": req.body.prenom
+           }
             User.create(user, (err, data) => {
             if (err)
                 res.status(500).json({ message : 'Utilisateur non crée !' + err})

@@ -54,5 +54,4 @@ User.remove = (id, result) => {
 };
 
 
-
 module.exports = User;

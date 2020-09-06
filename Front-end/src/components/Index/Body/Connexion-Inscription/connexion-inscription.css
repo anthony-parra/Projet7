@@ -1,5 +1,49 @@
-h2 {
+#titrePublic {
     text-align: center;
+    border-bottom: 1px solid black;
+    width: 80%;
+    margin: 50px auto 80px auto;
+}
+
+.blocPublicCommentairePartage {
+    display: flex;
+    justify-content: center;
+    background-color: #dae0e6;
+    color: black;
+    border-radius: 15px;
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.connexionAfter {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.bloc_connexionAfter {
+    display: flex;
+    justify-content: center;
+}
+
+.cliqueConnexion {
+    display: block;
+    margin: 30px;
+    width: 10vw;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    background-color: #ffd7d7;
+    transform: scale(1);
+    transition: 0.7s;
+}
+
+.cliqueConnexion:hover {
+    background-color: #555cae;
+    color: white;
+    transform: scale(1.15);
+    transition: 0.7s;
 }
 
 .inscription_connexion {
@@ -31,7 +75,9 @@ h2 {
 #choix_inscription,
 #choix_connexion,
 #connexion_validation,
-#inscription_validation {
+#inscription_validation,
+#commentaire,
+#partage {
     margin: 30px;
     width: 10vw;
     margin-left: auto;
@@ -45,11 +91,17 @@ h2 {
 }
 
 #connexion_validation:hover,
-#inscription_validation:hover {
+#inscription_validation:hover,
+#commentaire:hover,
+#partage:hover {
     background-color: #555cae;
     color: white;
     transform: scale(1.15);
     transition: 0.7s;
+}
+
+#commentaire_partage {
+    display: flex;
 }
 
 label {
@@ -58,6 +110,6 @@ label {
 
 .choix_clique {
     display: flex;
-    align-items: center;
+    margin-top: 130px;
     text-align: center;
 }

@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react'
-import Headers from './components/Index/Headers/headers.js'
-import Body from './components/Index/Body/body'
+import HeadersPublic from './components/Index/Headers/headers-public'
+import Public from './components/Accueil/public'
 
 
 class App extends Component {
@@ -10,8 +10,8 @@ class App extends Component {
     return(
       
       <Fragment>
-          <Headers />
-          <Body />
+          <HeadersPublic />
+          <Public />
       </Fragment>
     )
   }

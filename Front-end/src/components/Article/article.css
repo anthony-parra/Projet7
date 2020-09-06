@@ -2,8 +2,16 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid black;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 0px;
+    padding-bottom: 10px;
+}
+
+p {
+    margin: 5px;
 }
 
 #soulignementTitre {
@@ -16,15 +24,8 @@ h2 {
     width: 100%;
 }
 
-#colonneGauche,
-#colonneDroite {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    width: 20%;
-    border-right: 1px solid gray;
-    border-left: 1px solid gray;
-    background-color: #ffd7d7;
+strong {
+    color: #3F6E6E;
 }
 
 #formulaireArticle,
@@ -33,9 +34,17 @@ h2 {
     flex-direction: column;
     text-align: center;
     border: 1px solid gray;
-    margin: 20px;
+    margin: 40px;
     border-radius: 15px;
     box-shadow: 1px 1px 12px gray;
+    background-color: #FFFDFC;
+    font-size: 1.1em;
+    padding: 10px;
+}
+
+#formulaireTitreArticle {
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 textarea {
@@ -55,6 +64,8 @@ textarea {
     width: 400px;
     margin-left: auto;
     margin-right: auto;
+    background-color: #EAECEC;
+    margin-bottom: 20px;
 }
 
 #article {
@@ -62,32 +73,54 @@ textarea {
     padding: 5px;
     margin-left: auto;
     margin-right: auto;
+    background-color: #EAECEC;
 }
 
 #allArticles {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
     display: flex;
     flex-direction: column;
-    width: 60%;
+}
+
+#bloc_color {
+    background-color: #dae0e6;
+    width: 90%;
+    border-radius: 40px;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #boutonArticle,
-#boutonCommentaires {
-    margin: 30px;
+#boutonCommentaires,
+#boutonPartager {
+    margin: 15px;
     width: 10vw;
     margin-left: auto;
     margin-right: auto;
     border-radius: 15px;
-    background-color: #ffd7d7;
+    border-color: black;
+    background-color: white;
+    color: black;
     transform: scale(1);
     transition: 0.7s;
-    display: flex;
-    justify-content: center;
+    text-align: center;
 }
 
 #boutonArticle:hover,
-#boutonCommentaires:hover {
-    background-color: #555cae;
+#boutonCommentaires:hover,
+#boutonPartager:hover {
+    background-color: black;
     color: white;
     transform: scale(1.15);
     transition: 0.7s;
+}
+
+#titreNewArticle {
+    font-size: 1.3em;
+    font-weight: bold;
 }

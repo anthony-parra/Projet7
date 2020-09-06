@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react'
-import Headers from './components/Index/Headers/headers.js'
+import { Redirect } from 'react-router-dom'
+import HeadersPrivate from './components/Index/Headers/headers-private'
 import BodyAccueil from './components/Accueil/bodyAccueil'
 
 
@@ -8,10 +9,17 @@ class AppAccueil extends Component {
 
   render(){
 
+    const connect = localStorage.getItem('token')
+
+    if(connect === null){
+      console.log(connect)
+      return <Redirect to='/' />
+    }
+
     return(
       
       <Fragment>
-        <Headers />
+        <HeadersPrivate />
         <BodyAccueil />  
       </Fragment>
     )

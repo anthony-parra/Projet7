@@ -2,13 +2,16 @@ import React, { Fragment, Component } from 'react'
 import LogoIndex from '../Body/LogoPageIndex/LogoIndex'
 import Connexion from './Connexion-Inscription/connexion'
 import Inscription from './Connexion-Inscription/inscription'
+import Headers from '../Headers/headers'
+
 
 class Body extends Component {
 
       state = {
         isShowConnexion: false,
-        isShowInscription: false
+        isShowInscription: false,
       }
+
       
       handleShowConnexion = () => {
         const isShowConnexion = !this.state.isShowConnexion
@@ -19,7 +22,7 @@ class Body extends Component {
         const isShowInscription = !this.state.isShowInscription
         this.setState({ isShowInscription })
       }
-    
+
       render() {
 
       const { isShowInscription } = this.state
@@ -29,6 +32,7 @@ class Body extends Component {
         
         <Fragment>
 
+                <Headers />
                 <div className='inscription_connexion'>
 
                         {
@@ -43,12 +47,10 @@ class Body extends Component {
                             isShowInscription ? <Inscription /> : <LogoIndex />
                         }
 
-                        </div>
-
+                </div>
         </Fragment>
 
-        )
+        )}
       }
-    }
 
 export default Body

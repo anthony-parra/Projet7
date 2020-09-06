@@ -2,10 +2,84 @@ h1 {
     text-align: center;
 }
 
+#blocDisconnectDelete {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#disconnect,
+#delete {
+    margin: 5px;
+    width: 12vw;
+    border-radius: 15px;
+    background-color: white;
+    transform: scale(1);
+    transition: 0.7s;
+}
+
+#disconnect:hover,
+#delete:hover {
+    background-color: black;
+    color: white;
+    transform: scale(1.15);
+    transition: 0.7s;
+}
+
 header {
+    text-align: center;
     background-color: #ffd7d7;
     margin: 0px;
     padding: 30px;
     border: 2px double gray;
     box-shadow: 1px 1px 12px grey;
+}
+
+#headersPublic,
+#headersPrivate {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffd7d7;
+    margin: 0px;
+    padding: 30px;
+    border: 2px double gray;
+    box-shadow: 1px 1px 12px grey;
+    margin-bottom: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#connexion-inscription {
+    font-size: 2em;
+    border-bottom: 1px solid white;
+}
+
+#connexion-inscription:hover {
+    animation: wiggle 0.7s infinite;
+    color: white;
+    border-bottom: 1px solid black;
+}
+
+@keyframes wiggle {
+    10%,
+    90% {
+        transform: rotate(2deg);
+    }
+    20%,
+    80% {
+        transform: rotate(-4deg);
+    }
+    30%,
+    50%,
+    70% {
+        transform: rotate(4deg);
+    }
+    40%,
+    60% {
+        transform: rotate(-2deg);
+    }
 }
