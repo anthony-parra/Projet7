@@ -17,20 +17,13 @@ exports.create = (req, res) => {
             });
      }
 
-// RÉCUPÉRATION D'UN COMMENTAIRE AVEC SON ID
+// RÉCUPÉRATION DE TOUS LES COMMENTAIRES
 
-exports.findOne = (req, res) => {
-    Commentaire.findById(req.params.commentaireId, (err, data) => {
-      if (err) {
-        if (err.kind === "Non trouvé !") {
-          res.status(404).send({
-            message: `Aucun commentaire trouvé avec l'id : ${req.params.commentaireId}.`
-          });
-        } else {
-          res.status(500).send({
-            message: "Erreur avec l'id : " + req.params.commentaireId
-          });
-        }
-      } else res.send(data);
-    });
-  };
+exports.findAll = (req, res) => {
+
+  Commentaire.getAll((err, data) => {
+    if (err)
+      res.status(500).send({ message: 'On a rien trouvé !' + err });
+    else res.send(data);
+  });
+};

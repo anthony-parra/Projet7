@@ -10,6 +10,6 @@ router.post('/create', commentaireControllers.create);
 
 //ROUTE POUR LA RÉCUPÉRATION D'UN COMMENTAIRE AVEC SON ID
 
-router.get('/:commentaireId', commentaireControllers.findOne);
+router.get('/allCommentaire', commentaireControllers.findAll);
 
 module.exports = router;

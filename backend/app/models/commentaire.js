@@ -18,22 +18,19 @@ const Commentaire = function(e) {
     });
   }
 
-// RÉCUPÉRATION D'UN COMMENTAIRE AVEC SON ID
+// RÉCUPÉRATION DE TOUS LES COMMENTAIRE 
 
-Commentaire.findById = (commentaireId, result) => {
-    sql.query(`SELECT * FROM Commentaires WHERE id = ${commentaireId}`, (err, res) => {
-      if (err) {
-        console.log("error: ", err);
-        result(err, null);
-        return;
-      }
-      if (res.length) {
-        console.log("Commentaire trouvé : ", res[0]);
-        result(null, res[0]);
-        return;
-      }
-      result({ kind: "Non trouve !" }, null);
-    });
-  };
+Commentaire.getAll = result => {
+  sql.query("SELECT * FROM Commentaires", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("Commentaire : ", res);
+    result(null, res);
+  });
+};
 
   module.exports = Commentaire;

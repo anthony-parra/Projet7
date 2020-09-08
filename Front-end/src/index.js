@@ -9,7 +9,6 @@ import PageNonTrouve from './components/Index/PageNonTrouve/PageNonTrouve'
 import ConnexionInscription from './components/Index/Body/body'
 import ConnexionAfter from './components/Index/Body/Connexion-Inscription/connexionAfter'
 
-
 const Root = () => (
 
     <BrowserRouter>
@@ -22,7 +21,6 @@ const Root = () => (
       </Switch>
     </BrowserRouter>
 )
-
 
 ReactDOM.render(
   <React.StrictMode>

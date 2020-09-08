@@ -9,10 +9,15 @@ class Article extends Component {
             error: null,
             isLoaded: false,
             homes: [],
+            homesCommentaire: [],
             dataForm: {
                 titre: '',
                 article:''
-            }
+            },
+            dataCommentaire: {
+                commentaire:''
+            },
+            nombreCommentaire: false
         }
     }
     
@@ -25,6 +30,22 @@ class Article extends Component {
                 homes: result
               });
             })
+            .catch((error)=> { this.setState({
+                isLoaded: true,
+                error
+            });
+            })
+    }
+
+    fetchGetCommentaire = () => {
+        fetch(`http://localhost:3000/api/commentaire/allCommentaire`)
+          .then(res => res.json())
+          .then((result) => {
+              this.setState({
+                  isLoaded: true,
+                  homesCommentaire: result
+              })
+              })
             .catch((error)=> { this.setState({
                 isLoaded: true,
                 error
@@ -58,8 +79,29 @@ class Article extends Component {
         alert('Votre article vient d\'être publié !') 
     }
 
-    componentDidMount(){
-        this.fetchGetArticle()
+    handleClick = (event) => {
+        event.preventDefault()
+        const myHeaders = new Headers();
+        myHeaders.append('Content-Type', 'application/json');
+    
+        fetch('http://localhost:3000/api/commentaire/create', {
+            method: 'POST',
+            headers: myHeaders,
+            body: JSON.stringify(this.state.dataCommentaire)
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                return Promise.reject(response.status);
+            }
+        })
+        .then(response => console.log(response))
+        .then(() => this.setState({ article: true }))
+        .catch((error) => {
+            console.log({ message : 'Il y a une erreur : '+ error}) 
+        })
+        alert('Votre commentaire vient d\'être publié !')
     }
 
     handleChangeTitre = (event) => {
@@ -76,10 +118,27 @@ class Article extends Component {
         this.setState({ dataForm })
     }
 
+    handleChangeCommentaire = (event) => {
+        const dataCommentaire = {...this.state.dataCommentaire}
+        const commentaire = event.target.value
+        dataCommentaire.commentaire = commentaire
+        this.setState({ dataCommentaire })
+    }
+
+    handleClickCommentaire = () => {
+        const nombreCommentaire = !this.state.nombreCommentaire
+        this.setState({ nombreCommentaire })
+    }
+
+    componentDidMount(){
+        this.fetchGetArticle()
+        this.fetchGetCommentaire()
+    }
+
       render() {
 
-        const { error, isLoaded, homes } = this.state
-        const { article } = this.state
+        const { error, isLoaded, homes, homesCommentaire, article, nombreCommentaire } = this.state
+        const nombresCommentaires = homesCommentaire.length
 
         if(article){
              document.location.reload()
@@ -115,16 +174,36 @@ class Article extends Component {
                             <p id= "titreNewArticle">{home.titre}</p>
                             <p id='blocArticle'>{home.article}</p>
 
-                            <input className='commentaires' name='commentaires' type='text' placeholder='Écrivez quelque chose !'></input>
-                            
-                            <button type='submit' name='boutonCommentaires' id='boutonCommentaires'>Commenter</button>
-                            <button type='submit' name='boutonPartager' id='boutonPartager'>Partager</button>
+                            <form onSubmit={ this.handleClick }>
 
+                                <label htmlFor='commentaires' name='commentaires'/>
+                                <input onChange= { this.handleChangeCommentaire } className='commentaires' name='commentaires' type='text' placeholder='Écrivez quelque chose !' required ></input>
+                                
+                                <input type='submit' id='boutonCommentaires' value='Poster commentaire'></input>
+                                
+                            </form>
+                            <div>
+                                <button onClick = { this.handleClickCommentaire } id='nombresCommentaires'>{nombresCommentaires} commentaires</button>
+                                <button id='boutonPartager'>Partager</button>
+                            </div>
+
+                            <div> {
+
+                                nombreCommentaire ?
+                            
+                            homesCommentaire.map(homeCommentaire => 
+                                <div id='newCommentaire' key={homeCommentaire.id}>
+                                    <p>{homeCommentaire.commentaire}</p>
+                                </div>)
+                                
+                                : <Fragment />
+                            
+                            }</div>
                         </div>
                         )}
                     </div>
                 </Fragment>
-            );
+            )
         }
       }
     }
