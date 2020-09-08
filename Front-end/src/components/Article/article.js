@@ -56,9 +56,11 @@ class Article extends Component {
     handleSubmit = (event) => {
 
         event.preventDefault();
+        const token = localStorage.getItem('token')
+
         const myHeaders = new Headers();
         myHeaders.append('Content-Type', 'application/json');
-    
+        myHeaders.append('Authorization',`Bearer ${token}`)
         fetch('http://localhost:3000/api/article/create', {
             method: 'POST',
             headers: myHeaders,
@@ -81,8 +83,10 @@ class Article extends Component {
 
     handleClick = (event) => {
         event.preventDefault()
+        const token = localStorage.getItem('token')
         const myHeaders = new Headers();
         myHeaders.append('Content-Type', 'application/json');
+        myHeaders.append('Authorization',`Bearer ${token}`)
     
         fetch('http://localhost:3000/api/commentaire/create', {
             method: 'POST',

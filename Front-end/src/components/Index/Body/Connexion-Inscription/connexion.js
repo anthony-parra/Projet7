@@ -58,7 +58,7 @@ class Connexion extends Component {
 
         const { dataForm } = this.state
         const { redirection } = this.state
-        localStorage.setItem('token', JSON.stringify(this.state.token))
+        localStorage.setItem('token', this.state.token)
         localStorage.setItem('userId', this.state.userId)
 
         if(redirection){

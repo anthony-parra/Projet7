@@ -17,14 +17,14 @@ class HeadersPrivate extends Component{
             if(confirm === true){
 
                 const token = localStorage.getItem('token')
-                console.log(token)
                 const userId = localStorage.getItem('userId')
                 const myHeaders = new Headers();
-                myHeaders.append('Content-Type', 'application/json','Authorization',`token: Bearer ${token}`);
+                myHeaders.append('Content-Type', 'application/json')
+                myHeaders.append('Authorization',`Bearer ${token}`)
 
                 fetch(`http://localhost:3000/api/auth/${userId}`, {
                         method: 'DELETE',
-                        headers: myHeaders,
+                        headers: myHeaders
                     })
                 .then(response => {
                     if (response.ok) {
