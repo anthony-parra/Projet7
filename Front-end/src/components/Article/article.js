@@ -9,13 +9,9 @@ class Article extends Component {
             error: null,
             isLoaded: false,
             homes: [],
-            homesCommentaire: [],
             dataForm: {
                 titre: '',
                 article:''
-            },
-            dataCommentaire: {
-                commentaire:''
             },
             nombreCommentaire: false
         }
@@ -30,22 +26,6 @@ class Article extends Component {
                 homes: result
               });
             })
-            .catch((error)=> { this.setState({
-                isLoaded: true,
-                error
-            });
-            })
-    }
-
-    fetchGetCommentaire = () => {
-        fetch(`http://localhost:3000/api/commentaire/allCommentaire`)
-          .then(res => res.json())
-          .then((result) => {
-              this.setState({
-                  isLoaded: true,
-                  homesCommentaire: result
-              })
-              })
             .catch((error)=> { this.setState({
                 isLoaded: true,
                 error
@@ -136,13 +116,11 @@ class Article extends Component {
 
     componentDidMount(){
         this.fetchGetArticle()
-        this.fetchGetCommentaire()
     }
 
       render() {
 
-        const { error, isLoaded, homes, homesCommentaire, article, nombreCommentaire } = this.state
-        const nombresCommentaires = homesCommentaire.length
+        const { error, isLoaded, homes, article, nombreCommentaire } = this.state
 
         if(article){
              document.location.reload()
@@ -171,7 +149,8 @@ class Article extends Component {
                         <input id='boutonArticle' type='submit' value='Poster'></input>
 
                     </form>
-                    <div> { 
+                    <div> 
+                    { 
                         homes.map(home => 
                         <div id='newArticle' key={home.id}>
 
@@ -187,24 +166,24 @@ class Article extends Component {
                                 
                             </form>
                             <div>
-                                <button onClick = { this.handleClickCommentaire } id='nombresCommentaires'>{nombresCommentaires} commentaires</button>
+                                <button onClick = { this.handleClickCommentaire } id='nombresCommentaires'>Commentaires</button>
                                 <button id='boutonPartager'>Partager</button>
+
+                                {
+                                    nombreCommentaire 
+                                        ? 
+                                    <div>
+                                        <input type='hidden' value={home.post_id} />
+                                        <p className='bloc_commentaire'>{home.comments}</p> 
+                                    </div>
+                                        : 
+                                    <Fragment />
+                                }
+                                    
                             </div>
-
-                            <div> {
-
-                                nombreCommentaire ?
-                            
-                            homesCommentaire.map(homeCommentaire => 
-                                <div id='newCommentaire' key={homeCommentaire.id}>
-                                    <p>{homeCommentaire.commentaire}</p>
-                                </div>)
-                                
-                                : <Fragment />
-                            
-                            }</div>
-                        </div>
-                        )}
+                        </div>    
+                        )   
+                    }   
                     </div>
                 </Fragment>
             )

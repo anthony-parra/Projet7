@@ -1,4 +1,5 @@
 const Article = require('../models/article');
+const Commentaire = require('../models/commentaire')
 
 // CRÉATION D'UN ARTICLE
 
@@ -20,12 +21,30 @@ exports.create = (req, res) => {
 
 exports.findAll = (req, res) => {
 
-  Article.getAll((err, data) => {
+  Article.getAll((err, articles) => {
     if (err)
       res.status(500).send({ message: 'On a rien trouvé !' + err });
-    else res.send(data);
+    else {
+      
+      //Récupération de tous les commentaires
+      Commentaire.getAll((err, commentaires) => {
+        if (err){
+          res.status(500).send({ message: 'On a rien trouvé !' + err });
+        } else {
+          commentaires.forEach(commentaire => {
+            let article = articles.find(elt => elt.id === commentaire.post_id)
+            article.post_id = commentaire.post_id
+          })
+          commentaires.forEach(commentaire => {
+            let article = articles.find(elt => elt.id === commentaire.post_id)
+            article.comments = commentaire.commentaire
+          })
+          res.send(articles)
+        }
+      }
+      )}
   });
-};
+}
 
      // SUPPRESSION D'UN ARTICLE
 

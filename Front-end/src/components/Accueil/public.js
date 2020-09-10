@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react'
+/*import React, { Fragment, Component } from 'react'
 
 class Public extends Component {
 
@@ -107,4 +107,4 @@ class Public extends Component {
       }
     }
 
-export default Public
+export default Public*/

@@ -6,7 +6,7 @@ const commentaireControllers = require('../controllers/commentaire');
 
 //ROUTE POUR L'ÉCRITURE DE COMMENTAIRE
 
-router.post('/create',auth, commentaireControllers.create);
+router.post('/create', commentaireControllers.create);
 
 //ROUTE POUR LA RÉCUPÉRATION D'UN COMMENTAIRE AVEC SON ID
 

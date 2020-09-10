@@ -3,6 +3,8 @@ const sql = require("../../connexion");
 const Article = function(e) {
   this.titre = e.titre
   this.article = e.article
+  this.post_id = e.post_id
+  this.comments = e.comments
 };
 
 Article.create = (newArticle, result) => {

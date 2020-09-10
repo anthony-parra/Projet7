@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+/*import React, { Fragment } from 'react'
 import Image from '../../../images/image_logo.svg'
 import './headers.css'
 
@@ -14,4 +14,4 @@ const HeadersPublic = () => {
     )
 }
 
-export default HeadersPublic
+export default HeadersPublic*/
