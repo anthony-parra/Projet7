@@ -32,6 +32,25 @@ Article.create = (newArticle, result) => {
     });
   };
 
+  Article.findById = (articleId, result) => {
+    sql.query(`SELECT * FROM Article WHERE id = ${articleId}`, (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(err, null);
+        return;
+      }
+  
+      if (res.length) {
+        console.log("Article trouvé ! : ", res[0]);
+        result(null, res[0]);
+        return;
+      }
+  
+      // not found Customer with the id
+      result({ kind: "Non trouvé" }, null);
+    });
+  };
+
   Article.remove = (id, result) => {
     sql.query("DELETE FROM Article WHERE id = ?", id, (err, res) => {
       if (err) {

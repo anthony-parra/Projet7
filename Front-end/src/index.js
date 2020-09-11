@@ -7,6 +7,7 @@ import AppAccueil from './AppAccueil'
 import PageNonTrouve from './components/Index/PageNonTrouve/PageNonTrouve'
 import ConnexionInscription from './components/Index/Body/body'
 import ConnexionAfter from './components/Index/Body/Connexion-Inscription/connexionAfter'
+import AppArticle from './AppArticle'
 
 const Root = () => (
 
@@ -15,6 +16,7 @@ const Root = () => (
         <Route exact path ='/' component = { ConnexionInscription } />{/* Page Public afin de s'inscrire ou se connecter */}
         <Route exact path = '/connexion' component = { ConnexionAfter }/>{/* Page Public pour se connecter avec inscription */}
         <Route path='/accueil' component = { AppAccueil }/> {/* Page Protégée */}
+        <Route path='/article' component = { AppArticle } /> {/* Page protégé de l'article cliqué */}
         <Route component = { PageNonTrouve }/>{/* Page Non Trouvée ! */}
       </Switch>
     </BrowserRouter>

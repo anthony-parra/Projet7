@@ -34,16 +34,37 @@ exports.findAll = (req, res) => {
           commentaires.forEach(commentaire => {
             let article = articles.find(elt => elt.id === commentaire.post_id)
             article.post_id = commentaire.post_id
-          })
-          commentaires.forEach(commentaire => {
-            let article = articles.find(elt => elt.id === commentaire.post_id)
             article.comments = commentaire.commentaire
           })
-          res.send(articles)
+        res.send(articles)  
         }
       }
       )}
-  });
+  })
+}
+
+exports.findOne = (req, res) => {
+  Article.findById(req.params.articleId, (err, article) => {
+    if (err) {
+      res.status(500).send({ message: 'On a rien trouvé !' + err });
+    }
+       else {
+         
+        Commentaire.getAll((err, commentaires) => {
+          if (err){
+            res.status(500).send({ message: 'On a rien trouvé !' + err });
+          } else {
+            commentaires.forEach(commentaire => {
+              if(article.id === commentaire.post_id){
+                article.comments = commentaire.commentaire
+                article.post_id = commentaire.post_id
+              }  
+            })
+          res.send(article)  
+          }
+        })
+      }
+  })
 }
 
      // SUPPRESSION D'UN ARTICLE

@@ -45,14 +45,29 @@ strong {
     color: #3F6E6E;
 }
 
-#formulaireArticle,
-#newArticle {
+#formulaireArticle {
     display: flex;
     flex-direction: column;
     text-align: center;
     border: 1px solid gray;
-    margin: 40px;
-    border-radius: 15px;
+    margin: 20px;
+    border-radius: 40px;
+    box-shadow: 1px 1px 12px gray;
+    background-color: #FFFDFC;
+    font-size: 1.1em;
+    padding: 10px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.newArticle {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid gray;
+    margin: 20px;
+    border-radius: 40px;
     box-shadow: 1px 1px 12px gray;
     background-color: #FFFDFC;
     font-size: 1.1em;
@@ -108,14 +123,16 @@ textarea {
     border-radius: 40px;
     border-right: 2px solid black;
     border-left: 2px solid black;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 10px auto 10px auto;
+    padding: 10px;
 }
 
 #boutonArticle,
-#boutonCommentaires,
-#boutonPartager,
-#nombresCommentaires {
+.boutonCommentaires,
+.boutonPartager,
+.nombresCommentaires,
+.boutonRedirection,
+#commentaireArticleClicked {
     margin: 15px;
     width: 10vw;
     margin-left: auto;
@@ -130,9 +147,12 @@ textarea {
 }
 
 #boutonArticle:hover,
-#boutonCommentaires:hover,
-#boutonPartager:hover,
-#nombresCommentaires:hover {
+.boutonCommentaires:hover,
+.boutonPartager:hover,
+.nombresCommentaires:hover,
+.boutonRedirection:hover,
+#commentaireArticleClicked:hover,
+.boutonPartageLien:hover {
     background-color: black;
     color: white;
     transform: scale(1.15);
@@ -142,4 +162,79 @@ textarea {
 #titreNewArticle {
     font-size: 1.3em;
     font-weight: bold;
+}
+
+.articleClicked {
+    text-align: center;
+    margin: 30px 20px 30px 20px;
+}
+
+#commentaireArticleClicked,
+#commentaireArticleClickedPost {
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+    width: 12vw;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    border-color: black;
+    background-color: white;
+    color: black;
+    transform: scale(1);
+    transition: 0.7s;
+    text-align: center;
+}
+
+#commentaireArticleClicked:hover,
+#commentaireArticleClickedPost:hover {
+    background-color: black;
+    color: white;
+    transform: scale(1.15);
+    transition: 0.7s;
+}
+
+.blocCommentaireClicked {
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 0px 10px 50px;
+    background-color: #dae0e6;
+}
+
+#formClicked {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.writeBy {
+    font-size: 10px;
+}
+
+.blocPartage {
+    display: flex;
+    justify-content: center;
+}
+
+.partage {
+    width: 300px;
+    text-align: center;
+    height: 15px;
+    border-radius: 10px;
+    padding: 2px;
+    margin-right: 10px;
+    box-shadow: 1px 1px 5px gray;
+}
+
+.boutonPartageLien {
+    width: 10vw;
+    border-radius: 15px;
+    border-color: black;
+    background-color: white;
+    color: black;
+    transform: scale(1);
+    transition: 0.7s;
+    text-align: center;
 }

@@ -10,11 +10,9 @@ class BodyAccueil extends Component {
 
             <Fragment>
                 <h2><img src={Image} alt='Logo de Groupomania'></img><span id='soulignementTitre'>Fil d'actualité</span></h2>
-                <div id='bloc_color'>
                     <div id='allArticles'>
                         <Article />
                     </div>
-                </div>
             </Fragment>
         )
     }

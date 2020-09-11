@@ -6,7 +6,8 @@ const articleControllers = require ('../controllers/article.js');
 
 //ROUTE POUR LA CRÉATION DES ARTICLES
   
-router.post('/create',auth, articleControllers.create);
+router.post('/create', articleControllers.create);
+router.get('/oneArticle/:articleId', articleControllers.findOne)
 router.get('/allArticle', articleControllers.findAll);
 router.delete('/:articleId', auth, articleControllers.delete);
 

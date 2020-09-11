@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import '../Article/article.css'
+import { Redirect } from 'react-router-dom';
 
 class Article extends Component {
     constructor(){
@@ -13,7 +14,9 @@ class Article extends Component {
                 titre: '',
                 article:''
             },
-            nombreCommentaire: false
+            dataCommentaire:'',
+            nombreCommentaire: false,
+            partage: false,
         }
     }
     
@@ -109,9 +112,33 @@ class Article extends Component {
         this.setState({ dataCommentaire })
     }
 
-    handleClickCommentaire = () => {
+    handleClickCommentaire = (event) => {
         const nombreCommentaire = !this.state.nombreCommentaire
         this.setState({ nombreCommentaire })
+        this.state.homes.map(home => {
+            return home.id = event.target.id
+        })
+    }
+
+    handleClickArticle = (event) => {
+        const article = !this.state.article
+        this.setState({ article })
+        this.state.homes.map(home => {
+            home.id = event.target.id
+            return localStorage.setItem('articleId', home.id)
+        })
+    }
+    handlePartage = () => {
+        const url = new URL(window.location).href
+        localStorage.setItem('urlCopie', url)
+        const partage = !this.state.partage
+        this.setState({ partage })
+    }
+    handleCopied = () => {
+        const url = document.querySelector('textarea.partage')
+        url.select()
+        document.execCommand('copy')
+        alert('Le lien vient d\'être copié dans votre presse papier')
     }
 
     componentDidMount(){
@@ -120,7 +147,16 @@ class Article extends Component {
 
       render() {
 
-        const { error, isLoaded, homes, article, nombreCommentaire } = this.state
+        const { error, isLoaded, homes, article, nombreCommentaire, partage } = this.state
+        const email = localStorage.getItem('email')
+        const prenom = email.split('.')[0]
+        const falseName = email.split('@')[0]
+        const nom = falseName.split('.')[1]
+        const url = localStorage.getItem('urlCopie')
+   
+        if(article){
+            return <Redirect push to='/article' />
+        }
 
         if(article){
              document.location.reload()
@@ -147,41 +183,54 @@ class Article extends Component {
                         <textarea onChange = { this.handleChangeArticle } type='text' id='article'  minLength='5'  name='article' rows='10' cols='60' required ></textarea>
 
                         <input id='boutonArticle' type='submit' value='Poster'></input>
+                        
 
                     </form>
                     <div> 
                     { 
-                        homes.map(home => 
-                        <div id='newArticle' key={home.id}>
+                        homes.map(home =>
+                            <div id='bloc_color' key={home.id}>
+                                <div post_id={home.post_id}  className='newArticle'>
 
-                            <p id= "titreNewArticle">{home.titre}</p>
-                            <p id='blocArticle'>{home.article}</p>
+                                    <p id= "titreNewArticle">{home.titre}</p>
+                                    <p id='blocArticle'>{home.article}</p>
+                                    <p className='writeBy'>Écrit par : <strong>{prenom} {nom}</strong></p>
 
-                            <form onSubmit={ this.handleClick }>
+                                    <form onSubmit={ this.handleClick }>
 
-                                <label htmlFor='commentaires' name='commentaires'/>
-                                <input onChange= { this.handleChangeCommentaire } className='commentaires' name='commentaires' type='text' placeholder='Écrivez quelque chose !' required ></input>
-                                
-                                <input type='submit' id='boutonCommentaires' value='Poster commentaire'></input>
-                                
-                            </form>
-                            <div>
-                                <button onClick = { this.handleClickCommentaire } id='nombresCommentaires'>Commentaires</button>
-                                <button id='boutonPartager'>Partager</button>
-
-                                {
-                                    nombreCommentaire 
-                                        ? 
+                                        <label htmlFor='commentaires' name='commentaires'/>
+                                        <input onChange= { this.handleChangeCommentaire } className='commentaires' name='commentaires' type='text' placeholder='Écrivez quelque chose !' required ></input>
+                                        
+                                        <input type='submit' className='boutonCommentaires' value='Poster commentaire'></input>
+                                        
+                                    </form>
                                     <div>
-                                        <input type='hidden' value={home.post_id} />
-                                        <p className='bloc_commentaire'>{home.comments}</p> 
+                                        <button value={home.id} onClick = { this.handleClickCommentaire } className='nombresCommentaires'>Commentaires</button>
+                                        <button onClick={this.handlePartage}  className='boutonPartager'>Partager</button>
+                                        <button onClick = { this.handleClickArticle } id={home.id} className='boutonRedirection'>Allez sur l'article !</button>
+                                        
+                                        {
+                                            partage ? 
+                                            <div className='blocPartage'>
+                                                <textarea defaultValue={url} className='partage'></textarea>
+                                                <button className='boutonPartageLien' onClick={this.handleCopied}>Copier le lien</button>
+                                            </div> : 
+                                            <Fragment />
+                                        }
+                                        {
+                                            nombreCommentaire 
+                                                ? 
+                                            <div>
+                                                <input type='hidden' value={home.post_id} />
+                                                <p post_id={home.post_id} className='bloc_commentaire'>{home.comments}</p>   
+                                            </div>
+                                                : 
+                                            <Fragment />
+                                        }
+                                            
                                     </div>
-                                        : 
-                                    <Fragment />
-                                }
-                                    
-                            </div>
-                        </div>    
+                                </div>
+                            </div>   
                         )   
                     }   
                     </div>
