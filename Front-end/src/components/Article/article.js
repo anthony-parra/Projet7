@@ -189,7 +189,7 @@ class Article extends Component {
                     <div> 
                     { 
                         homes.map(home =>
-                            <div id='bloc_color' key={home.id}>
+                            <div className='bloc_color' key={home.id}>
                                 <div post_id={home.post_id}  className='newArticle'>
 
                                     <p id= "titreNewArticle">{home.titre}</p>

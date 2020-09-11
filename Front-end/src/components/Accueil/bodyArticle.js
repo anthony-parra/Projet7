@@ -118,7 +118,7 @@ class BodyArticle extends Component {
                                 ? 
                             <div>
                                 <input type='hidden' value={homes.post_id}/>
-                                <p post_id={homes.post_id} className='blocCommentaireClicked'>=> {homes.comments}</p>    
+                                <p post_id={homes.post_id} className='blocCommentaireClicked'>=> {homes.comments}</p>
                             </div>
                                 : 
                             <Fragment />

@@ -117,7 +117,7 @@ textarea {
     flex-direction: column;
 }
 
-#bloc_color {
+.bloc_color {
     background-color: #dae0e6;
     width: 90%;
     border-radius: 40px;
