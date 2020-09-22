@@ -4,7 +4,8 @@ const User = (user) => {
   this.email = user.email,
   this.nom = user.nom,
   this.password = user.password,
-  this.prenom = user.prenom
+  this.prenom = user.prenom,
+  this.isAdmin = user.isAdmin
 };
 
 User.create = (newUser, result) => {

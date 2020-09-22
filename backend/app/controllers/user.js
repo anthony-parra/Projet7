@@ -17,7 +17,8 @@ exports.signup = (req, res) => {
                 "email": req.body.email,
                 "nom": req.body.nom,
                 "password": hash,
-                "prenom": req.body.prenom
+                "prenom": req.body.prenom,
+                "isAdmin": 0
            }
             User.create(user, (err, data) => {
             if (err)
