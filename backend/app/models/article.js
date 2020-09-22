@@ -3,12 +3,12 @@ const sql = require("../../connexion");
 const Article = function(e) {
   this.titre = e.titre
   this.article = e.article
-  this.post_id = e.post_id
-  this.comments = e.comments
+  this.post_id = e.id
+  this.comments = e.comments ? e.comments : []
 };
 
 Article.create = (newArticle, result) => {
-    sql.query("INSERT INTO Article SET ?", newArticle, (err, res) => {
+    sql.query(`INSERT INTO Article (titre, article) VALUES ('${newArticle.titre}','${newArticle.article}')`, (err, res) => {
       if (err) {
         console.log("error: ", err);
         result(err, null);
@@ -26,9 +26,12 @@ Article.create = (newArticle, result) => {
         result(null, err);
         return;
       }
-  
-      console.log("article : ", res);
-      result(null, res);
+      let articles = [];
+      articles = res.map(element =>{
+        return new Article(element);
+      })
+      console.log("article : ", articles);
+      result(null, articles);
     });
   };
 

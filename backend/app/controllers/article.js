@@ -25,16 +25,15 @@ exports.findAll = (req, res) => {
     if (err)
       res.status(500).send({ message: 'On a rien trouvé !' + err });
     else {
-      
+      console.log('articleController',articles)
       //Récupération de tous les commentaires
       Commentaire.getAll((err, commentaires) => {
         if (err){
           res.status(500).send({ message: 'On a rien trouvé !' + err });
         } else {
           commentaires.forEach(commentaire => {
-            let article = articles.find(elt => elt.id === commentaire.post_id)
-            article.post_id = commentaire.post_id
-            article.comments = commentaire.commentaire
+            let article = articles.find(elt => elt.post_id === commentaire.post_id)
+            article.comments.push(commentaire)
           })
         res.send(articles)  
         }

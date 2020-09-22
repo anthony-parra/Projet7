@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from 'react'
 import Image from '../../images/icon.png'
-import Article from '../Article/article'
+import ArticleAccueil from '../Article/articleAccueil'
 
 class BodyAccueil extends Component {
 
@@ -11,7 +11,7 @@ class BodyAccueil extends Component {
             <Fragment>
                 <h2><img src={Image} alt='Logo de Groupomania'></img><span id='soulignementTitre'>Fil d'actualité</span></h2>
                     <div id='allArticles'>
-                        <Article />
+                        <ArticleAccueil />
                     </div>
             </Fragment>
         )
