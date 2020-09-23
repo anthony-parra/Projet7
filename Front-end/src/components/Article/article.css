@@ -238,3 +238,12 @@ textarea {
     transition: 0.7s;
     text-align: center;
 }
+
+.allComments {
+    text-align: left;
+    border-bottom: 1px solid gray;
+    border-top: 1px solid gray;
+    padding: 10px;
+    border-radius: 5px;
+    width: 80%;
+}

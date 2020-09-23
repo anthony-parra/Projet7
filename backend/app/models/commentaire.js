@@ -3,7 +3,9 @@ const sql = require("../../connexion");
 // CRÉATION D'UN COMMENTAIRE
 
 const Commentaire = function(e) {
-    this.commentaire = e.commentaire
+    this.commentaire = e.commentaire;
+    this.post_id = e.post_id;
+    this.user_id = e.user_id;
   }
 
   Commentaire.create = (newCommentaire, result) => {
