@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import PartageArticle from '../partageArticle'
 import CommentForm from './CommentForm/CommentForm'
 import AllComments from './AllComments/AllComments'
+import GoArticle from '../GoArticle'
 
 
 class Single extends Component {
@@ -14,17 +15,24 @@ class Single extends Component {
 
       render() {
 
-            let {id, titre, article, comments,post_id } = this.props
+            let {id, titre, article, comments, post_id, date } = this.props
+            let aaammjj = date.split('T')[0]
+            let heureTest = date.split('T')[1]
+            let heure = heureTest.split('.')[0]
+            
+
             return (
+
                 <div id={id} className='bloc_color' key={id} >
                     <div className='newArticle'>
 
                         <p id= "titreNewArticle">{titre}</p>
                         <p id='blocArticle'>{article}</p>
+                        <p className='date_heure' >Publié le {aaammjj} à {heure} par </p>
                         <CommentForm postId={id} />
                     <div>
                         <PartageArticle id={id} />
-                        <button id={id} className='boutonRedirection'>Allez sur l'article !</button>          
+                        <GoArticle id={id} />          
                     </div>
                     <AllComments comments={comments} postId={post_id} />
                     </div>

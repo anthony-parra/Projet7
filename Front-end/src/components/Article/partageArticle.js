@@ -7,9 +7,11 @@ class PartageArticle extends Component {
         partage: false,
     }
 
-    handlePartage = () => {
-        const url = new URL(window.location).href
-        localStorage.setItem('urlCopie', url)
+    handlePartage = (event) => {
+        const id = event.currentTarget.id
+        const origin = window.location.origin
+        const url = `${origin}/article/${id}`
+        localStorage.setItem('url', url)
         const partage = !this.state.partage
         this.setState({ partage })
     }
@@ -23,13 +25,14 @@ class PartageArticle extends Component {
 
     render(){
 
-    const url = localStorage.getItem('urlCopie')
     const { partage } = this.state
+    const { id } = this.props
+    const url = localStorage.getItem('url')
 
         return(
 
             <Fragment>
-                <button onClick={this.handlePartage}  className='boutonPartager'>Partager</button>
+                <button onClick={this.handlePartage} id={id}  className='boutonPartager'>Partager</button>
                 {
                     partage ? 
                     <div className='blocPartage'>

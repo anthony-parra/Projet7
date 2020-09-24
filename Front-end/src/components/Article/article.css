@@ -247,3 +247,7 @@ textarea {
     border-radius: 5px;
     width: 80%;
 }
+
+.date_heure {
+    font-size: 10px;
+}

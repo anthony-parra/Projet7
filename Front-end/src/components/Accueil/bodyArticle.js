@@ -1,8 +1,6 @@
 import React, { Fragment, Component } from 'react'
 import '../Article/article.css'
 
-const articleId = localStorage.getItem('articleId')
-
 class BodyArticle extends Component {
 
     state = {
@@ -11,14 +9,17 @@ class BodyArticle extends Component {
         homes: [],
         nombreCommentaire: false,
         postCommentaire: false,
-        dataCommentaire: '',
+        dataCommentaire: ''
     }
 
     
     fetchGetArticle = () => {
-        fetch(`http://localhost:3000/api/article/oneArticle/${articleId}`)
-          .then(res => res.json())
-          .then((result) => {
+
+        const url = window.location.pathname
+        const id = url.split('/')[2]
+        fetch(`http://localhost:3000/api/article/oneArticle/${id}`)
+            .then(res => res.json())
+            .then((result) => {
             this.setState({
                 isLoaded: true,
                 homes: result
@@ -27,7 +28,7 @@ class BodyArticle extends Component {
             .catch((error)=> { this.setState({
                 isLoaded: true,
                 error
-            });
+            })
             })
     }
 
@@ -80,7 +81,8 @@ class BodyArticle extends Component {
     render(){
 
         const { error, isLoaded, homes, nombreCommentaire, postCommentaire } = this.state
-             
+        console.log(homes)
+                    
         if (error) {
             return (
               <div>Error: { error.message }</div>
@@ -94,7 +96,7 @@ class BodyArticle extends Component {
 
                     <Fragment>
                         <h2>{homes.titre}</h2>
-                        <div>
+                        <div key={homes.id} id={homes.id}>
                             <p className='articleClicked'>{homes.article}</p>
                             <button onClick= {this.handleClickPost} id='commentaireArticleClickedPost'>Poster un commentaire</button>
                             <button onClick= {this.handleClickCommentaire} id='commentaireArticleClicked'>Commentaires</button>

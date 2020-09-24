@@ -16,7 +16,7 @@ const Root = () => (
         <Route exact path ='/' component = { ConnexionInscription } />{/* Page Public afin de s'inscrire ou se connecter */}
         <Route exact path = '/connexion' component = { ConnexionAfter }/>{/* Page Public pour se connecter avec inscription */}
         <Route path='/accueil' component = { AppAccueil }/> {/* Page Protégée */}
-        <Route path='/article' component = { AppArticle } /> {/* Page protégé de l'article cliqué */}
+        <Route path='/article/:id' component = { AppArticle } /> {/* Page protégé de l'article cliqué */}
         <Route component = { PageNonTrouve }/>{/* Page Non Trouvée ! */}
       </Switch>
     </BrowserRouter>

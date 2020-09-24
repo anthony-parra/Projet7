@@ -1,6 +1,7 @@
 const Article = require('../models/article');
 const Commentaire = require('../models/commentaire')
 
+
 // CRÉATION D'UN ARTICLE
 
 exports.create = (req, res) => {
@@ -52,15 +53,13 @@ exports.findOne = (req, res) => {
         Commentaire.getAll((err, commentaires) => {
           if (err){
             res.status(500).send({ message: 'On a rien trouvé !' + err });
-          } else {
+          } else {   
             commentaires.forEach(commentaire => {
-              if(article.id === commentaire.post_id){
-                article.comments = commentaire.commentaire
-                article.post_id = commentaire.post_id
-              }  
+              let comment = article.find(elt => elt.id === commentaire.post_id)
+              article.push(comment)
             })
-          res.send(article)  
           }
+          res.send(article)  
         })
       }
   })

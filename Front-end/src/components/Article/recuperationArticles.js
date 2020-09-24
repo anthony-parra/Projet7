@@ -54,6 +54,7 @@ class RecuperationArticles extends Component {
                             id={home.post_id} 
                             titre={home.titre} 
                             article={home.article}
+                            date={home.date}
                             comments={home.comments}
                             />)   
                     }   
