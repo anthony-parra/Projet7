@@ -52,34 +52,3 @@ a {
     text-decoration: none;
     color: black;
 }
-
-#connexion-inscription {
-    font-size: 2em;
-    border-bottom: 1px solid white;
-}
-
-#connexion-inscription:hover {
-    animation: wiggle 0.7s infinite;
-    color: white;
-    border-bottom: 1px solid black;
-}
-
-@keyframes wiggle {
-    10%,
-    90% {
-        transform: rotate(2deg);
-    }
-    20%,
-    80% {
-        transform: rotate(-4deg);
-    }
-    30%,
-    50%,
-    70% {
-        transform: rotate(4deg);
-    }
-    40%,
-    60% {
-        transform: rotate(-2deg);
-    }
-}

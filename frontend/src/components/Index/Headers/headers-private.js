@@ -53,9 +53,8 @@ class HeadersPrivate extends Component{
 
     render(){
 
-        const { redirection } = this.state
+        const { redirection, token } = this.state
         const email = localStorage.getItem('email')
-        const { token } = this.state
 
             if(token === null){
                 return <Redirect to='/' /> 

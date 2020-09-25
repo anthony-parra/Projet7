@@ -3,8 +3,6 @@ import { Redirect } from 'react-router-dom'
 import HeadersPrivate from './components/Index/Headers/headers-private'
 import BodyAccueil from './components/Accueil/bodyAccueil'
 
-
-
 class AppAccueil extends Component {
 
   render(){
@@ -12,7 +10,6 @@ class AppAccueil extends Component {
     const connect = localStorage.getItem('token')
 
     if(connect === null){
-      console.log(connect)
       return <Redirect to='/' />
     }
 
