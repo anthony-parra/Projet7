@@ -26,8 +26,8 @@ class Commentaire extends Component {
                         {
                             commentaire 
                                 ?
-                            comments.map(comment =>
-                                <Fragment>
+                            comments.map((comment, index) =>
+                                <Fragment key={'comment' + index}>
                                     <p post_id={post_id} className='blocCommentaireClicked'>=> {comment.commentaire}</p>
                                     <p className='date_heure'>Publié le par </p>
                                </Fragment>

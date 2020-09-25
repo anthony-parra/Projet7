@@ -4,9 +4,8 @@ import '../../oneArticle.css'
 class PostCommentaire extends Component {
 
     state = {
-        dataCommentaire : {},
+        dataCommentaire : '',
         postCommentaire: false,
-        commentaire: false,
     }
 
     handleChangeCommentaire = (event) => {
@@ -14,38 +13,6 @@ class PostCommentaire extends Component {
             dataCommentaire: event.target.value,
         })
     } 
-    handleSubmitCommentaire = (event) => {
-        event.preventDefault()
-        const token = localStorage.getItem('token')
-        const myHeaders = new Headers();
-        myHeaders.append('Content-Type', 'application/json');
-        myHeaders.append('Authorization',`Bearer ${token}`)
-
-        let comment = {
-            post_id : this.props.post_id,
-            commentaire: this.state.dataCommentaire,
-            userId: localStorage.getItem('userId')
-        } 
-    
-        fetch('http://localhost:3000/api/commentaire/create', {
-            method: 'POST',
-            headers: myHeaders,
-            body: JSON.stringify(comment)
-        })
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                return Promise.reject(response.status);
-            }
-        })
-        .then(response => console.log(response))
-        .then(() => this.setState({ commentaire: true }))
-        .catch((error) => {
-            console.log({ message : 'Il y a une erreur : '+ error}) 
-        })
-        alert('Votre commentaire vient d\'être publié !')
-    }
 
     handleClickPost = () => {
         const postCommentaire = !this.state.postCommentaire
@@ -54,11 +21,8 @@ class PostCommentaire extends Component {
 
       render() {
         
-        let { postCommentaire, commentaire } = this.state
-
-        if(commentaire){
-            return window.location.reload()
-        }
+        let { postCommentaire } = this.state
+        let { click } = this.props
 
             return (
 
@@ -67,10 +31,14 @@ class PostCommentaire extends Component {
                     {   
                         postCommentaire 
                             ? 
-                        <form id='formClicked' onSubmit={ this.handleSubmitCommentaire }>
+                        <form id='formClicked' onSubmit={(e) => { 
+                            e.preventDefault(); 
+                            click(e, this.props.post_id, this.state.dataCommentaire); 
+                            this.setState({ dataCommentaire: '' })
+                        } }>
 
                             <label htmlFor='commentaires' name='commentaires'/>
-                            <input onChange= { this.handleChangeCommentaire } className='commentaires' name='commentaires' type='text' placeholder='Écrivez quelque chose !' required ></input>
+                            <input onChange= { this.handleChangeCommentaire } value={this.state.dataCommentaire} className='commentaires' name='commentaires' type='text' placeholder='Écrivez quelque chose !' required ></input>
                             
                             <input type='submit' className='boutonCommentaires' value='Poster commentaire'></input>
                                 

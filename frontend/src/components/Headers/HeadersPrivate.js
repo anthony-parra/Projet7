@@ -47,7 +47,7 @@ class HeadersPrivate extends Component{
         const confirm = window.confirm('Êtes vous sûr de vouloir vous déconnecter ?')
             if(confirm === true){
                 this.setState({ token: null })
-                localStorage.removeItem('token')
+                localStorage.clear()
             }
     }
 

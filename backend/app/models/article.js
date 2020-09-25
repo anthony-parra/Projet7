@@ -25,7 +25,7 @@ Article.create = (newArticle, result) => {
 // RÉCUPÉRATION DE TOUS LES ARTICLES
 
   Article.getAll = result => {
-    sql.query("SELECT * FROM Article ORDER BY date DESC", (err, res) => {
+    sql.query("SELECT a.id, a.titre, a.article, a.date, a.user_id AS \"author_id\", i.email, i.nom, i.prenom FROM Article a INNER JOIN Inscription i ON a.user_id = i.id ORDER BY date DESC", (err, res) => {
       if (err) {
         console.log("erreur: ", err);
         result(null, err);
@@ -33,7 +33,14 @@ Article.create = (newArticle, result) => {
       }
       let articles = [];
       articles = res.map(element => {
-        return new Article(element);
+        let post = new Article(element)
+        post.author = {
+          nom: element.nom,
+          prenom: element.prenom,
+          email: element.email,
+          id: element.id
+        }
+        return post;
       })
       console.log("article : ", articles);
       result(null, articles);

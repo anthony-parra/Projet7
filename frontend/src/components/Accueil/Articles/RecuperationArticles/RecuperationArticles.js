@@ -12,6 +12,7 @@ class RecuperationArticles extends Component {
 
     fetchGetArticle = () => {
         fetch('http://localhost:3000/api/article/allArticle')
+        
           .then(res => res.json())
           .then((result) => {
               this.setState({

@@ -44,7 +44,7 @@ exports.login = (req, res) => {
             res.status(200).json({
               userId : user.id, 
               token : jsonWebToken.sign({ userId : user.id }, 'LA_CLE_SECRETE', {
-              expiresIn: '24h'
+              expiresIn: '30s'
               })
           })
         })  
