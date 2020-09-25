@@ -25,8 +25,8 @@ class SingleArticle extends Component {
                 <div id={id} className='bloc_color' key={id} >
                     <div className='newArticle'>
 
-                        <p id= "titreNewArticle">{titre}</p>
-                        <p id='blocArticle'>{article}</p>
+                        <p className= "titreNewArticle">{titre}</p>
+                        <p className='blocArticle'>{article}</p>
                         <p className='date_heure' >Publié le {aaammjj} à {heure} par </p>
                         <CommentForm postId={id} />
                     <div>

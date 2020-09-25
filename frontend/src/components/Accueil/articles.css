@@ -1,0 +1,186 @@
+#soulignementTitre {
+    border-bottom: 2px solid #ffd7d7;
+}
+
+#allArticles {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+#formulaireArticle {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid gray;
+    margin: 20px;
+    border-radius: 40px;
+    box-shadow: 1px 1px 12px gray;
+    background-color: #FFFDFC;
+    font-size: 1.1em;
+    padding: 10px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#formulaireTitreArticle {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#titreArticle {
+    text-align: center;
+    border-radius: 10px;
+    padding: 5px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #EAECEC;
+    margin-bottom: 20px;
+}
+
+#article {
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #EAECEC;
+}
+
+#boutonArticle,
+.boutonCommentaires,
+.boutonPartager,
+.boutonRedirection {
+    margin: 15px;
+    width: 10vw;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    border-color: black;
+    background-color: white;
+    color: black;
+    transform: scale(1);
+    transition: 0.7s;
+    text-align: center;
+}
+
+#boutonArticle:hover,
+.boutonCommentaires:hover,
+.boutonPartager:hover,
+.boutonPartageLien:hover,
+.boutonRedirection:hover {
+    background-color: black;
+    color: white;
+    transform: scale(1.15);
+    transition: 0.7s;
+}
+
+.bloc_color {
+    background-color: #dae0e6;
+    width: 90%;
+    border-radius: 40px;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    margin: 10px auto 10px auto;
+    padding: 10px;
+}
+
+.newArticle {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid gray;
+    margin: 20px;
+    border-radius: 40px;
+    box-shadow: 1px 1px 12px gray;
+    background-color: #FFFDFC;
+    font-size: 1.1em;
+    padding: 10px;
+}
+
+.titreNewArticle {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.blocArticle {
+    margin-bottom: 50px;
+}
+
+.date_heure {
+    font-size: 10px;
+    text-align: center;
+}
+
+.commentaires {
+    text-align: center;
+    border-radius: 10px;
+    padding: 5px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #EAECEC;
+    margin-bottom: 20px;
+}
+
+.blocPartage {
+    display: flex;
+    justify-content: center;
+}
+
+.partage {
+    width: 300px;
+    text-align: center;
+    height: 15px;
+    border-radius: 10px;
+    padding: 2px;
+    margin-right: 10px;
+    box-shadow: 1px 1px 5px gray;
+}
+
+.boutonPartageLien {
+    width: 10vw;
+    border-radius: 15px;
+    border-color: black;
+    background-color: white;
+    color: black;
+    transform: scale(1);
+    transition: 0.7s;
+    text-align: center;
+}
+
+#commentaireArticleClickedPost {
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+    width: 12vw;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    border-color: black;
+    background-color: white;
+    color: black;
+    transform: scale(1);
+    transition: 0.7s;
+    text-align: center;
+}
+
+#commentaireArticleClickedPost:hover {
+    background-color: black;
+    color: white;
+    transform: scale(1.15);
+    transition: 0.7s;
+}
+
+.allComments {
+    text-align: left;
+    border-bottom: 1px solid gray;
+    border-top: 1px solid gray;
+    padding: 10px;
+    border-radius: 5px;
+    width: 80%;
+}
