@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
+import '../../Article/article.css'
 
-class CommentForm extends Component {
+class PostCommentaire extends Component {
 
     state = {
         dataCommentaire : {},
+        postCommentaire: false,
         commentaire: false,
     }
 
@@ -12,7 +14,7 @@ class CommentForm extends Component {
             dataCommentaire: event.target.value,
         })
     } 
-    handleClick = (event) => {
+    handleSubmitCommentaire = (event) => {
         event.preventDefault()
         const token = localStorage.getItem('token')
         const myHeaders = new Headers();
@@ -20,7 +22,7 @@ class CommentForm extends Component {
         myHeaders.append('Authorization',`Bearer ${token}`)
 
         let comment = {
-            post_id : this.props.postId,
+            post_id : this.props.post_id,
             commentaire: this.state.dataCommentaire,
             userId: localStorage.getItem('userId')
         } 
@@ -44,24 +46,41 @@ class CommentForm extends Component {
         })
         alert('Votre commentaire vient d\'être publié !')
     }
-      
+
+    handleClickPost = () => {
+        const postCommentaire = !this.state.postCommentaire
+        this.setState({ postCommentaire })
+    }
 
       render() {
+        
+        let { postCommentaire, commentaire } = this.state
 
-           const { commentaire } = this.state
-
-           if(commentaire){
-               return window.location.reload()
-           }
+        if(commentaire){
+            return window.location.reload()
+        }
 
             return (
-                    <form onSubmit={this.handleClick}>
-                        <label htmlFor='commentaires' name='commentaires'/>
+
+                <Fragment>
+                    <button onClick= {this.handleClickPost} id='commentaireArticleClickedPost'>Poster un commentaire</button>
+                    {   
+                        postCommentaire 
+                            ? 
+                        <form id='formClicked' onSubmit={ this.handleSubmitCommentaire }>
+
+                            <label htmlFor='commentaires' name='commentaires'/>
                             <input onChange= { this.handleChangeCommentaire } className='commentaires' name='commentaires' type='text' placeholder='Écrivez quelque chose !' required ></input>
-                            <input type='submit' className='boutonCommentaires' value='Poster commentaire'></input>    
-                    </form>                      
+                            
+                            <input type='submit' className='boutonCommentaires' value='Poster commentaire'></input>
+                                
+                        </form>
+                            : 
+                        <Fragment />
+                    }
+                </Fragment>
             )
         }
       }
 
-export default CommentForm
+export default PostCommentaire

@@ -6,7 +6,6 @@ const Article = function(e) {
   this.post_id = e.id
   this.comments = e.comments ? e.comments : []
   this.date = e.date
-  this.email = e.email
 };
 
 Article.create = (newArticle, result) => {
@@ -45,8 +44,12 @@ Article.create = (newArticle, result) => {
         return;
       }
       if (res) {
-        console.log("Article trouvé ! : ", res);
-        result(null, res);
+        let articles = [];
+        articles = res.map(element => {
+        return new Article(element);
+      })
+        console.log("Article trouvé ! : ", articles);
+        result(null, articles);
         return;
       }
       // not found Customer with the id

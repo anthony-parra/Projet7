@@ -25,9 +25,7 @@ class GoArticle extends Component {
             }
 
             return (
-                <div>
-                    <button onClick={this.handleClick} id={id} className='boutonRedirection'>Allez sur l'article !</button>
-                </div>                       
+                    <button onClick={this.handleClick} id={id} className='boutonRedirection'>Allez sur l'article !</button>            
             )
         }
       }

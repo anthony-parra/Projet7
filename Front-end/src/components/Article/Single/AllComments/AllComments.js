@@ -1,20 +1,36 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 
 class AllComments extends Component {
 
-      render() {
+    state = {
+        commentaire: false,
+    }
+
+    handleClickCommentaire = () => {
+        const commentaire = !this.state.commentaire
+        this.setState({ commentaire })
+    }  
+    
+    render() {
 
             let { comments, post_id } = this.props
+            let { commentaire } = this.state
 
             return (
-                <div>
+                
+                <Fragment>
+                    <button onClick= {this.handleClickCommentaire} id='commentaireArticleClickedPost'>{comments.length} commentaires</button>
                     <input type="hidden" name="postId" value={post_id} />
                     {
+                        commentaire
+                            ?
                         comments.map(comment => 
                             <p className='allComments' key={comment.id}>{comment.commentaire}</p>
                         )
+                            :
+                        <Fragment />
                     }
-                </div>                       
+                </Fragment>                       
             )
         }
       }

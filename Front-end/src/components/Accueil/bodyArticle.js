@@ -1,5 +1,8 @@
 import React, { Fragment, Component } from 'react'
 import '../Article/article.css'
+import SingleArticle from './SingleArticle/SingleArticle'
+import PostCommentaire from './SingleArticle/PostCommentaire'
+import Commentaires from './SingleArticle/Commentaires'
 
 class BodyArticle extends Component {
 
@@ -8,11 +11,9 @@ class BodyArticle extends Component {
         isLoaded: false,
         homes: [],
         nombreCommentaire: false,
-        postCommentaire: false,
-        dataCommentaire: ''
+        dataCommentaire: '',
     }
 
-    
     fetchGetArticle = () => {
 
         const url = window.location.pathname
@@ -36,52 +37,9 @@ class BodyArticle extends Component {
         this.fetchGetArticle()
     }
 
-    handleSubmitCommentaire = (event) => {
-        event.preventDefault()
-        const token = localStorage.getItem('token')
-        const myHeaders = new Headers();
-        myHeaders.append('Content-Type', 'application/json');
-        myHeaders.append('Authorization',`Bearer ${token}`)
-    
-        fetch('http://localhost:3000/api/commentaire/create', {
-            method: 'POST',
-            headers: myHeaders,
-            body: JSON.stringify(this.state.dataCommentaire)
-        })
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                return Promise.reject(response.status);
-            }
-        })
-        .then(response => console.log(response))
-        .then(() => this.setState({ article: true }))
-        .catch((error) => {
-            console.log({ message : 'Il y a une erreur : '+ error}) 
-        })
-        alert('Votre commentaire vient d\'être publié !')
-    }
-
-    handleClickCommentaire = () => {
-        const nombreCommentaire = !this.state.nombreCommentaire
-        this.setState({ nombreCommentaire })
-    }
-    handleClickPost = () => {
-        const postCommentaire = !this.state.postCommentaire
-        this.setState({ postCommentaire })
-    }
-    handleChangeCommentaire = (event) => {
-        const dataCommentaire = {...this.state.dataCommentaire}
-        const commentaire = event.target.value
-        dataCommentaire.commentaire = commentaire
-        this.setState({ dataCommentaire })
-    }
-
     render(){
 
-        const { error, isLoaded, homes, nombreCommentaire, postCommentaire } = this.state
-        console.log(homes)
+        const { error, isLoaded, homes } = this.state
                     
         if (error) {
             return (
@@ -93,39 +51,32 @@ class BodyArticle extends Component {
               );
           } else {
                 return(
-
-                    <Fragment>
-                        <h2>{homes.titre}</h2>
-                        <div key={homes.id} id={homes.id}>
-                            <p className='articleClicked'>{homes.article}</p>
-                            <button onClick= {this.handleClickPost} id='commentaireArticleClickedPost'>Poster un commentaire</button>
-                            <button onClick= {this.handleClickCommentaire} id='commentaireArticleClicked'>Commentaires</button>
-                        </div>
-                        {   
-                            postCommentaire 
-                                ? 
-                                <form id='formClicked' onSubmit={ this.handleSubmitCommentaire }>
-
-                                        <label htmlFor='commentaires' name='commentaires'/>
-                                        <input onChange= { this.handleChangeCommentaire } className='commentaires' name='commentaires' type='text' placeholder='Écrivez quelque chose !' required ></input>
-                                        
-                                        <input type='submit' className='boutonCommentaires' value='Poster commentaire'></input>
-                                        
-                                    </form>
-                                : 
-                            <Fragment />
+                    
+                    <Fragment> 
+                        { 
+                            homes.map(home => <SingleArticle
+                                key={home.post_id}
+                                titre={home.titre} 
+                                article={home.article}
+                                date={home.date}
+                                />
+                            )
                         }
-                        {   
-                            nombreCommentaire 
-                                ? 
-                            <div>
-                                <input type='hidden' value={homes.post_id}/>
-                                <p post_id={homes.post_id} className='blocCommentaireClicked'>=> {homes.comments}</p>
-                            </div>
-                                : 
-                            <Fragment />
+
+                        {
+                            homes.map(home => <PostCommentaire 
+                                post_id={home.post_id}
+                                />
+                            )
                         }
-                        
+
+                        {
+                            homes.map(home => <Commentaires
+                                post_id={home.post_id}
+                                comments={home.comments}
+                                />
+                            )
+                        }     
                     </Fragment>
                 )
         }

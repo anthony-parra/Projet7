@@ -34,11 +34,13 @@ class PartageArticle extends Component {
             <Fragment>
                 <button onClick={this.handlePartage} id={id}  className='boutonPartager'>Partager</button>
                 {
-                    partage ? 
+                    partage 
+                        ? 
                     <div className='blocPartage'>
                         <textarea defaultValue={url} className='partage'></textarea>
                         <button className='boutonPartageLien' onClick={this.handleCopied}>Copier le lien</button>
-                    </div> : 
+                    </div> 
+                        : 
                     <Fragment />
                 }
             </Fragment>

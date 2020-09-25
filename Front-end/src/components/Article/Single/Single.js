@@ -32,9 +32,10 @@ class Single extends Component {
                         <CommentForm postId={id} />
                     <div>
                         <PartageArticle id={id} />
-                        <GoArticle id={id} />          
+                        <GoArticle id={id} />
+                        <AllComments comments={comments} postId={post_id} />          
                     </div>
-                    <AllComments comments={comments} postId={post_id} />
+                    
                     </div>
                 </div>   
             )

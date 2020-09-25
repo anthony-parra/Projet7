@@ -44,23 +44,23 @@ exports.findAll = (req, res) => {
 }
 
 exports.findOne = (req, res) => {
-  Article.findById(req.params.articleId, (err, article) => {
+  Article.findById(req.params.articleId, (err, articles) => {
     if (err) {
       res.status(500).send({ message: 'On a rien trouvé !' + err });
     }
-       else {
-         
+      else {
         Commentaire.getAll((err, commentaires) => {
           if (err){
             res.status(500).send({ message: 'On a rien trouvé !' + err });
-          } else {   
+          } else {
             commentaires.forEach(commentaire => {
-              let comment = article.find(elt => elt.id === commentaire.post_id)
-              article.push(comment)
+              if(articles[0].post_id === commentaire.post_id){
+                articles[0].comments.push(commentaire)
+              }
             })
           }
-          res.send(article)  
-        })
+          res.send(articles)
+        }) 
       }
   })
 }
