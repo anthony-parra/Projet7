@@ -39,11 +39,9 @@ class Body extends Component {
                         {
                             isShowConnexion ? <Connexion /> : <LogoIndex />
                         }
-
                         <p className='choix_clique'><strong>Veuillez cliquer sur <br/>
                         <button id='choix_connexion' onClick = { this.handleShowConnexion } > Connexion </button>
                         <button id='choix_inscription' onClick = { this.handleShowInscription } > Inscription </button></strong></p>
-                        
                         {
                             isShowInscription ? <Inscription /> : <LogoIndex />
                         }

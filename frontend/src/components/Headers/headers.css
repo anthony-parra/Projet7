@@ -2,6 +2,15 @@ h1 {
     text-align: center;
 }
 
+.logo_groupomania,
+.logo_groupomania_private {
+    width: 500px;
+}
+
+.image_index {
+    width: 300px;
+}
+
 #blocDisconnectDelete {
     display: flex;
     flex-direction: column;
@@ -11,7 +20,7 @@ h1 {
 #disconnect,
 #delete {
     margin: 5px;
-    width: 12vw;
+    width: 155px;
     border-radius: 15px;
     background-color: white;
     transform: scale(1);
@@ -30,7 +39,7 @@ header {
     text-align: center;
     background-color: #ffd7d7;
     margin: 0px;
-    padding: 30px;
+    padding: 15px;
     border: 2px double gray;
     box-shadow: 1px 1px 12px grey;
 }
@@ -51,4 +60,20 @@ header {
 a {
     text-decoration: none;
     color: black;
+}
+
+
+/* ----------------------------- RESPONSIVE ------------------------ */
+
+@media screen and (max-width: 550px) {
+    .logo_groupomania,
+    .logo_groupomania_private {
+        width: 90vw;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #headersPrivate {
+        flex-direction: column;
+    }
 }

@@ -1,9 +1,17 @@
+#root {
+    margin-bottom: 30px;
+}
+
 #soulignementTitre {
     border-bottom: 2px solid #ffd7d7;
 }
 
+button {
+    width: 155px;
+}
+
 #allArticles {
-    width: 70%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     padding-top: 30px;
@@ -36,7 +44,7 @@
     text-align: center;
     border-radius: 10px;
     padding: 5px;
-    width: 400px;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     background-color: #EAECEC;
@@ -44,6 +52,7 @@
 }
 
 #article {
+    width: 90%;
     border-radius: 10px;
     padding: 5px;
     margin-left: auto;
@@ -51,14 +60,21 @@
     background-color: #EAECEC;
 }
 
+#boutonArticle {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #boutonArticle,
 .boutonCommentaires,
 .boutonPartager,
-.boutonRedirection {
-    margin: 15px;
-    width: 10vw;
-    margin-left: auto;
-    margin-right: auto;
+.boutonRedirection,
+.nombresCommentaires,
+#commentaireArticleClicked,
+.boutonPartageLien {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    width: 155px;
     border-radius: 15px;
     border-color: black;
     background-color: white;
@@ -72,7 +88,10 @@
 .boutonCommentaires:hover,
 .boutonPartager:hover,
 .boutonPartageLien:hover,
-.boutonRedirection:hover {
+.boutonRedirection:hover,
+.nombresCommentaires:hover,
+#commentaireArticleClicked:hover,
+.boutonPartageLien:hover {
     background-color: black;
     color: white;
     transform: scale(1.15);
@@ -120,7 +139,7 @@
     text-align: center;
     border-radius: 10px;
     padding: 5px;
-    width: 400px;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     background-color: #EAECEC;
@@ -130,6 +149,7 @@
 .blocPartage {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .partage {
@@ -138,26 +158,16 @@
     height: 15px;
     border-radius: 10px;
     padding: 2px;
-    margin-right: 10px;
-    box-shadow: 1px 1px 5px gray;
-}
-
-.boutonPartageLien {
-    width: 10vw;
-    border-radius: 15px;
-    border-color: black;
-    background-color: white;
-    color: black;
-    transform: scale(1);
-    transition: 0.7s;
-    text-align: center;
+    box-shadow: 1px 1px 5px grey;
+    margin-top: 10px;
 }
 
 #commentaireArticleClickedPost {
     display: flex;
     justify-content: center;
-    margin: 15px;
-    width: 12vw;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    width: 155px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 15px;
@@ -183,4 +193,69 @@
     padding: 10px;
     border-radius: 5px;
     width: 80%;
+}
+
+@keyframes wiggle {
+    10%,
+    90% {
+        transform: rotate(2deg);
+    }
+    20%,
+    80% {
+        transform: rotate(-4deg);
+    }
+    30%,
+    50%,
+    70% {
+        transform: rotate(4deg);
+    }
+    40%,
+    60% {
+        transform: rotate(-2deg);
+    }
+}
+
+
+/* ----------------------------- RESPONSIVE ------------------------ */
+
+@media screen and (min-width: 1700px) {
+    h2,
+    #allArticles {
+        width: 1500px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    h2,
+    .partage {
+        width: 95%;
+    }
+    #formulaireArticle {
+        width: 80%;
+    }
+    .logoTitre {
+        width: 27vw;
+    }
+    #boutonArticle,
+    .boutonCommentaires,
+    .boutonPartager,
+    .boutonRedirection,
+    .nombresCommentaires,
+    #commentaireArticleClicked,
+    #commentaireArticleClickedPost,
+    .boutonPartageLien {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .blocPartage {
+        flex-direction: column;
+    }
+    .boutonPartageLien {
+        background-color: gray;
+        color: white;
+        animation: wiggle 0.7s infinite;
+    }
+    .blocArticle {
+        margin-bottom: 30px;
+    }
 }

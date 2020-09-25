@@ -2,6 +2,10 @@
     margin-top: 15px;
 }
 
+.email {
+    text-align: center;
+}
+
 #titrePublic {
     text-align: center;
     border-bottom: 1px solid black;
@@ -110,11 +114,69 @@
 }
 
 label {
-    margin: 10px;
+    margin-bottom: 10px;
 }
 
 .choix_clique {
     display: flex;
     margin-top: 130px;
     text-align: center;
+}
+
+
+/* ----------------------------- RESPONSIVE ------------------------ */
+
+@media screen and (min-width: 1700px) {
+    .inscription_connexion,
+    .bloc_connexionAfter {
+        width: 1700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #choix_inscription,
+    #choix_connexion,
+    #connexion_validation,
+    #inscription_validation,
+    #commentaire,
+    #partage {
+        width: 170px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .inscription_connexion {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .choix_clique {
+        display: contents;
+    }
+    .image_index {
+        margin-bottom: 30px;
+    }
+    #choix_inscription,
+    #choix_connexion,
+    #connexion_validation,
+    #inscription_validation,
+    #commentaire,
+    #partage {
+        width: 100px;
+    }
+    .bloc_connexion,
+    .bloc_inscription {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .bloc_connexion,
+    .bloc_inscription {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .bloc_connexion,
+    .bloc_inscription {
+        width: 80%;
+    }
 }

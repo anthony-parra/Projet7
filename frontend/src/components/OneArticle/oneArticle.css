@@ -56,33 +56,6 @@ textarea {
     margin-bottom: 20px;
 }
 
-.boutonCommentaires,
-.boutonPartager,
-.nombresCommentaires,
-#commentaireArticleClicked {
-    margin: 15px;
-    width: 10vw;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 15px;
-    border-color: black;
-    background-color: white;
-    color: black;
-    transform: scale(1);
-    transition: 0.7s;
-    text-align: center;
-}
-
-.boutonCommentaires:hover,
-.boutonPartager:hover,
-.nombresCommentaires:hover,
-#commentaireArticleClicked:hover {
-    background-color: black;
-    color: white;
-    transform: scale(1.15);
-    transition: 0.7s;
-}
-
 .articleClicked {
     text-align: center;
     margin: 30px 20px 30px 20px;
@@ -114,14 +87,40 @@ textarea {
 .blocCommentaireClicked {
     border-bottom: 2px solid black;
     border-top: 2px solid black;
-    width: 90%;
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
-    padding: 10px 0px 10px 50px;
+    padding: 10px 10px 10px 20px;
     background-color: #dae0e6;
 }
 
 #formClicked {
     text-align: center;
     margin-top: 40px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* ----------------------------- RESPONSIVE ------------------------ */
+
+@media screen and (min-width: 1700px) {
+    .bloc_oneArticle {
+        width: 1700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width:900px) {
+    #formClicked {
+        width: 80%;
+    }
+    .blocCommentaireClicked {
+        padding: 5px 10px 5px 10px;
+    }
+    #commentaireArticleClickedPost {
+        margin-bottom: 10px;
+    }
 }

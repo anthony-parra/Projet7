@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react'
+import React, { Component } from 'react'
 import '.././oneArticle.css'
 import SingleArticle from '../Article/SingleArticle/SingleArticle'
 import PostCommentaire from '../Article/PostCommentaire/PostCommentaire'
@@ -52,7 +52,7 @@ class Body extends Component {
           } else {
                 return(
                     
-                    <Fragment> 
+                    <div className='bloc_oneArticle'> 
                         { 
                             homes.map(home => <SingleArticle
                                 key={home.post_id}
@@ -77,7 +77,7 @@ class Body extends Component {
                                 />
                             )
                         }     
-                    </Fragment>
+                    </div>
                 )
         }
     }

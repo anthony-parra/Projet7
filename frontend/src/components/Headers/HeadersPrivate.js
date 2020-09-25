@@ -67,7 +67,7 @@ class HeadersPrivate extends Component{
         return(
         <Fragment>
             <header id='headersPrivate'>
-                <h1><img className='logo_groupomania' src={Image} alt='Logo de Groupomania'/></h1>
+                <h1><img className='logo_groupomania_private' src={Image} alt='Logo de Groupomania'/></h1>
                 <div id='blocDisconnectDelete'>
                     <button id='disconnect' onClick={ this.handleClick } >Se déconnecter</button>
                     <div className='bloc_mail_delete'>

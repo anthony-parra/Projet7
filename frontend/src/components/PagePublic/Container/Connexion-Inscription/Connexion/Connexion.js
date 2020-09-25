@@ -73,7 +73,7 @@ class Connexion extends Component {
                             <form id = 'connexion' onSubmit = { this.handleSubmit }>
 
                                 <label htmlFor='email'>Votre adresse mail </label>
-                                <input value = {dataForm.email} onChange = {this.handleChangeEmail} type='email' name='email' id='email' required placeholder='prénom.nom@groupomania.com'
+                                <input value = {dataForm.email} onChange = {this.handleChangeEmail} type='email' name='email' className='email' required placeholder='prénom.nom@groupomania.com'
                                 pattern='[a-z]{2,}.[a-z]{2,}@[g]{1}[r]{1}[o]{1}[u]{1}[p]{1}[o]{1}[m]{1}[a]{1}[n]{1}[i]{1}[a]{1}.[c]{1}[o]{1}[m]{1}'/>
 
                                 <label htmlFor='password'>Votre mot de passe</label>

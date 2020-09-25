@@ -10,7 +10,7 @@ class BodyAccueil extends Component {
         return(
 
             <Fragment>
-                <h2><img src={Image} alt='Logo de Groupomania'></img><span id='soulignementTitre'>Fil d'actualité</span></h2>
+                <h2><img className='logoTitre' src={Image} alt='Logo de Groupomania'></img><span id='soulignementTitre'>Fil d'actualité</span></h2>
                     <div id='allArticles'>
                         <Articles />
                     </div>
