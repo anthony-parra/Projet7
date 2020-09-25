@@ -5,9 +5,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import './index.css';
 import AppAccueil from './AppAccueil'
 import AppArticle from './AppArticle'
-import PageNonTrouve from './components/Index/PageNonTrouve/PageNonTrouve'
-import ConnexionInscription from './components/Index/Body/body'
-import ConnexionAfter from './components/Index/Body/Connexion-Inscription/connexionAfter'
+import PageNonTrouve from './components/PagePublic/PageNonTrouve/PageNonTrouve'
+import ConnexionInscription from './components/PagePublic/Container/Body/body'
+import ConnexionAfter from './components/PagePublic/Body/Connexion-Inscription/connexionAfter'
 
 const Root = () => (
 
