@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import '../Article/article.css'
+import './article.css'
 import Single from './Single/Single';
 
 class RecuperationArticles extends Component {

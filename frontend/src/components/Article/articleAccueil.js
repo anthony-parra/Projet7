@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 //import { Redirect } from 'react-router-dom'
-import '../Article/article.css'
+import './article.css'
 import NewArticle from './newArticle'
 import RecuperationArticles from './recuperationArticles'
 //import NewComments from './newComments'
