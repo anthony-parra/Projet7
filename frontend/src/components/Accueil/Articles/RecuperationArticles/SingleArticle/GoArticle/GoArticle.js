@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-import '../../../../articles.module.css'
+import '../../../../articles.css'
 
 class GoArticle extends Component {
 

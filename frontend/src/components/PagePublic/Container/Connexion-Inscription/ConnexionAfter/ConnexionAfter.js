@@ -1,7 +1,7 @@
 import React, { Fragment, Component } from 'react'
 import Connexion from '../Connexion/Connexion'
 import Header from '../../../../Headers/Headers'
-import '../../../pagePublic.module.css'
+import '../../../pagePublic.css'
 
 class ConnexionAfter extends Component {
     

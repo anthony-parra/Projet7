@@ -3,7 +3,7 @@ import LogoIndex from '../LogoPageIndex/LogoIndex'
 import Connexion from '../Connexion-Inscription/Connexion/Connexion'
 import Inscription from '../Connexion-Inscription/Inscription/Inscription'
 import Headers from '../../../Headers/Headers'
-import '../../pagePublic.module.css'
+import '../../pagePublic.css'
 
 
 class Body extends Component {

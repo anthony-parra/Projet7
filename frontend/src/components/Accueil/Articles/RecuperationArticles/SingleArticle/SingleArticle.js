@@ -3,7 +3,7 @@ import PartageArticle from './PartageArticle/PartageArticle'
 import CommentForm from './CommentForm/CommentForm'
 import AllComments from './AllComments/AllComments'
 import GoArticle from './GoArticle/GoArticle'
-import '../../../articles.module.css'
+import '../../../articles.css'
 
 
 class SingleArticle extends Component {

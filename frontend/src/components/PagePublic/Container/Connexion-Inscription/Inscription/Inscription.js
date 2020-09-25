@@ -1,5 +1,5 @@
 import React, { Fragment, Component } from 'react'
-import '../../../pagePublic.module.css'
+import '../../../pagePublic.css'
 import { Redirect } from 'react-router-dom';
 
 class Inscription extends Component {

@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import '../articles.module.css'
+import '../articles.css'
 import NewArticle from './NewArticle/NewArticle'
 import RecuperationArticles from './RecuperationArticles/RecuperationArticles'
 

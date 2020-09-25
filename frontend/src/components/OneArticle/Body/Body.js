@@ -1,5 +1,5 @@
 import React, { Fragment, Component } from 'react'
-import '.././oneArticle.module.css'
+import '.././oneArticle.css'
 import SingleArticle from '../Article/SingleArticle/SingleArticle'
 import PostCommentaire from '../Article/PostCommentaire/PostCommentaire'
 import Commentaires from '../Article/Commentaires/Commentaires'

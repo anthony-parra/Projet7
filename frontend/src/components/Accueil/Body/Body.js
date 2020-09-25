@@ -1,7 +1,7 @@
 import React, { Fragment, Component } from 'react'
 import Image from './Image/icon.png'
 import Articles from '../Articles/Articles'
-import '../articles.module.css'
+import '../articles.css'
 
 class BodyAccueil extends Component {
 

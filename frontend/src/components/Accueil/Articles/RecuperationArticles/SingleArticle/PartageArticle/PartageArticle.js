@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import '../../../../articles.module.css'
+import '../../../../articles.css'
 
 class PartageArticle extends Component {
 
