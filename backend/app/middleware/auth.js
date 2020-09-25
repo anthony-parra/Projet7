@@ -7,7 +7,7 @@ module.exports = (req, res, next) => {
         const decodedToken = jsonWebToken.verify(token, 'LA_CLE_SECRETE');
         const userId = decodedToken.userId;
         if (req.body.userId && req.body.userId !== userId) {
-            throw 'User Id invalide !';
+            throw 'User Id invalid !';
         } else {
             next();
         }

@@ -8,10 +8,12 @@ const User = (user) => {
   this.isAdmin = user.isAdmin
 };
 
+// CRÉATION D'UN NOUVEL UTILISATEUR
+
 User.create = (newUser, result) => {
   sql.query("INSERT INTO Inscription SET ?", newUser, (err, res) => {
     if (err) {
-      console.log("error: ", err);
+      console.log("erreur: ", err);
       result(err, null);
       return;
     }
@@ -20,10 +22,12 @@ User.create = (newUser, result) => {
   });
 }
 
+// RÉCUPÉRATION D'UN UTILISATEUR AVEC SON EMAIL
+
 User.findOne = (email, result) => {
   sql.query(`SELECT * FROM Inscription WHERE email ='${email}'`, (err, res) => {
     if (err) {
-      console.log("error: ", err);
+      console.log("erreur: ", err);
       result(err, null);
       return;
     }
@@ -38,10 +42,12 @@ User.findOne = (email, result) => {
   });
 };
 
+// SUPPRESSION D'UN UTILISATEUR AVEC SON ID
+
 User.remove = (id, result) => {
   sql.query("DELETE FROM Inscription WHERE id = ?", id, (err, res) => {
     if (err) {
-      console.log("error: ", err);
+      console.log("erreur: ", err);
       result(null, err);
       return;
     }

@@ -8,10 +8,12 @@ const Article = function(e) {
   this.date = e.date
 };
 
+// CRÉATION D'UN NOUVEL ARTICLE
+
 Article.create = (newArticle, result) => {
     sql.query(`INSERT INTO Article (titre, article) VALUES ('${newArticle.titre}','${newArticle.article}')`, (err, res) => {
       if (err) {
-        console.log("error: ", err);
+        console.log("erreur: ", err);
         result(err, null);
         return;
       }
@@ -20,10 +22,12 @@ Article.create = (newArticle, result) => {
     });
   }
 
+// RÉCUPÉRATION DE TOUS LES ARTICLES
+
   Article.getAll = result => {
     sql.query("SELECT * FROM Article ORDER BY date DESC", (err, res) => {
       if (err) {
-        console.log("error: ", err);
+        console.log("erreur: ", err);
         result(null, err);
         return;
       }
@@ -36,10 +40,12 @@ Article.create = (newArticle, result) => {
     });
   };
 
+// RÉCUPÉRATION D'UN ARTICLE AVEC SON ID
+
   Article.findById = (articleId, result) => {
     sql.query(`SELECT * FROM Article WHERE id = ${articleId}`, (err, res) => {
       if (err) {
-        console.log("error: ", err);
+        console.log("erreur: ", err);
         result(err, null);
         return;
       }
@@ -57,10 +63,12 @@ Article.create = (newArticle, result) => {
     });
   };
 
+// SUPPRESSION D'UN ARTICLE AVEC SON ID
+
   Article.remove = (id, result) => {
     sql.query("DELETE FROM Article WHERE id = ?", id, (err, res) => {
       if (err) {
-        console.log("error: ", err);
+        console.log("erreur: ", err);
         result(null, err);
         return;
       }

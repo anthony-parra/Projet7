@@ -20,6 +20,8 @@ exports.create = (req, res) => {
             });
      }
 
+// RÉCUPÉRATION DE TOUS LES ARTICLES AVEC LES COMMENTAIRES ASSOCIÉS
+
 exports.findAll = (req, res) => {
 
   Article.getAll((err, articles) => {
@@ -42,6 +44,8 @@ exports.findAll = (req, res) => {
       )}
   })
 }
+
+// RÉCUPÉRATION D'UN ARTICLE AVEC LES COMMENTAIRES ASSOCIÉS
 
 exports.findOne = (req, res) => {
   Article.findById(req.params.articleId, (err, articles) => {
