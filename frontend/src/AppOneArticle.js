@@ -1,9 +1,9 @@
 import React, {Component, Fragment} from 'react'
 import { Redirect } from 'react-router-dom'
 import HeadersPrivate from './components/Headers/HeadersPrivate'
-import BodyAccueil from './components/Accueil/Body/Body'
+import Body from './components/OneArticle/Body/Body'
 
-class AppAccueil extends Component {
+class AppOneArticle extends Component {
 
   render(){
 
@@ -17,9 +17,9 @@ class AppAccueil extends Component {
       
       <Fragment>
         <HeadersPrivate />
-        <BodyAccueil />  
+        <Body />  
       </Fragment>
     )
   }
 }
-export default AppAccueil
+export default AppOneArticle

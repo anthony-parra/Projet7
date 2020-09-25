@@ -1,8 +1,9 @@
 import React, { Fragment, Component } from 'react'
 import LogoIndex from '../LogoPageIndex/LogoIndex'
-import Connexion from '../Connexion-Inscription/connexion'
-import Inscription from '../Connexion-Inscription/inscription'
-import Headers from '../../Headers/headers'
+import Connexion from '../Connexion-Inscription/Connexion/Connexion'
+import Inscription from '../Connexion-Inscription/Inscription/Inscription'
+import Headers from '../../../Headers/Headers'
+import '../../pagePublic.module.css'
 
 
 class Body extends Component {

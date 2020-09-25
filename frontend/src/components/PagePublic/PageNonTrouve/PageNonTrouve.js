@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
-import Header from '../Headers/headers'
+import Header from '../../Headers/Headers'
+import '../pagePublic.module.css'
 
 const PageNonTrouve = () => (
 
