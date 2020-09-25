@@ -25,8 +25,12 @@ class AllComments extends Component {
                     {
                         commentaire
                             ?
-                        comments.map(comment => 
-                            <p className='allComments' key={comment.id}>{comment.commentaire}</p>
+                        comments.map(comment =>
+                            <Fragment> 
+                                <p className='allComments' key={comment.id}>{comment.commentaire}</p>
+                                <p className='date_heure'>Publié le  à  par </p>
+                                 
+                            </Fragment>
                         )
                             :
                         <Fragment />

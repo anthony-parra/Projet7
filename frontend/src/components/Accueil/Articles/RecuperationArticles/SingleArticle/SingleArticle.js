@@ -32,7 +32,7 @@ class SingleArticle extends Component {
                     <div>
                         <PartageArticle id={id} />
                         <GoArticle id={id} />
-                        <AllComments comments={comments} postId={post_id} />          
+                        <AllComments comments={comments} postId={post_id}/>          
                     </div>
                     
                     </div>

@@ -17,6 +17,7 @@ class Commentaire extends Component {
         let { comments, post_id } = this.props
         let { commentaire } = this.state
 
+
             return (
 
                 <Fragment>
@@ -25,8 +26,11 @@ class Commentaire extends Component {
                         {
                             commentaire 
                                 ?
-                            comments.map(comment => 
-                               <p post_id={post_id} className='blocCommentaireClicked'>=> {comment.commentaire}</p> 
+                            comments.map(comment =>
+                                <Fragment>
+                                    <p post_id={post_id} className='blocCommentaireClicked'>=> {comment.commentaire}</p>
+                                    <p className='date_heure'>Publié le par </p>
+                               </Fragment>
                             )
                                 :
                             <Fragment/>

@@ -4,6 +4,7 @@ const Commentaire = function(e) {
     this.commentaire = e.commentaire;
     this.post_id = e.post_id;
     this.user_id = e.user_id;
+    this.date = e.date;
   }
 
 // CRÉATION D'UN COMMENTAIRE
