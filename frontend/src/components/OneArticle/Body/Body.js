@@ -55,7 +55,17 @@ class Body extends Component {
 
         const url = window.location.pathname
         const id = url.split('/')[2]
-        fetch(`http://localhost:3000/api/article/oneArticle/${id}`)
+        const token = localStorage.getItem('token')
+        const myHeaders = new Headers();
+        myHeaders.append('Content-Type', 'application/json');
+        myHeaders.append('Authorization',`Bearer ${token}`)
+
+        fetch(`http://localhost:3000/api/article/oneArticle/${id}`, {
+
+            method: 'GET',
+            headers: myHeaders
+            
+        })
             .then(res => res.json())
             .then((result) => {
             this.setState({

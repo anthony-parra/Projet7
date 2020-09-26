@@ -9,10 +9,9 @@ exports.create = (req, res) => {
       }
         const commentaire = new Commentaire ({
           commentaire: req.body.commentaire,
-          user_id: req.body.userId,
+          user_id: req.body.user_id,
           post_id: req.body.post_id,
       });
-      console.log(commentaire);
         Commentaire.create(commentaire, (err, data) => {
             if (err)
                 res.status(500).json({ message : 'Commentaire non crée !'})

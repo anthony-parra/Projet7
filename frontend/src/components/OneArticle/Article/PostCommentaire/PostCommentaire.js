@@ -35,7 +35,7 @@ class PostCommentaire extends Component {
                             e.preventDefault(); 
                             click(e, this.props.post_id, this.state.dataCommentaire); 
                             this.setState({ dataCommentaire: '' })
-                        } }>
+                        }}>
 
                             <label htmlFor='commentaires' name='commentaires'/>
                             <input onChange= { this.handleChangeCommentaire } value={this.state.dataCommentaire} className='commentaires' name='commentaires' type='text' placeholder='Écrivez quelque chose !' required ></input>

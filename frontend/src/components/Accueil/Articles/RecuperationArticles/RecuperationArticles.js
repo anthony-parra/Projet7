@@ -11,7 +11,17 @@ class RecuperationArticles extends Component {
     }
 
     fetchGetArticle = () => {
-        fetch('http://localhost:3000/api/article/allArticle')
+
+        const token = localStorage.getItem('token')
+        const myHeaders = new Headers();
+        myHeaders.append('Content-Type', 'application/json');
+        myHeaders.append('Authorization',`Bearer ${token}`)
+
+        fetch('http://localhost:3000/api/article/allArticle', {
+
+            method: 'GET',
+            headers: myHeaders
+        })
         
           .then(res => res.json())
           .then((result) => {
@@ -57,6 +67,7 @@ class RecuperationArticles extends Component {
                             article={home.article}
                             date={home.date}
                             comments={home.comments}
+                            author={home.author}
                             />)   
                     }   
                     </div>

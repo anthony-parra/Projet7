@@ -11,12 +11,13 @@ exports.create = (req, res) => {
       }
         const article = new Article ({
           titre: req.body.titre,
-          article: req.body.article
+          article: req.body.article,
+          user_id: req.body.user_id
       })
         Article.create(article, (err, data) => {
             if (err)
                 res.status(500).json({ message : 'Article non crée !'})
-            else res.send(data);
+            else res.send(data)
             });
      }
 

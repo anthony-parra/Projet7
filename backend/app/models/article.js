@@ -6,12 +6,13 @@ const Article = function(e) {
   this.post_id = e.id
   this.comments = e.comments ? e.comments : []
   this.date = e.date
+  this.user_id = e.user_id
 };
 
 // CRÉATION D'UN NOUVEL ARTICLE
 
 Article.create = (newArticle, result) => {
-    sql.query(`INSERT INTO Article (titre, article) VALUES ('${newArticle.titre}','${newArticle.article}')`, (err, res) => {
+    sql.query(`INSERT INTO Article (titre, article, user_id) VALUES ('${newArticle.titre}','${newArticle.article}','${newArticle.user_id}')`, (err, res) => {
       if (err) {
         console.log("erreur: ", err);
         result(err, null);

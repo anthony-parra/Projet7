@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import '../../articles.css'
+const user_id = localStorage.getItem('userId')
 
 class newArticle extends Component {
 
@@ -7,7 +8,8 @@ class newArticle extends Component {
 
         dataForm: {
             titre: '',
-            article:''
+            article:'',
+            user_id: user_id
         },
         article: false,
     }

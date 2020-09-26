@@ -14,7 +14,7 @@ class SingleArticle extends Component {
 
       render() {
 
-            let {id, titre, article, comments, post_id, date } = this.props
+            let {id, titre, article, comments, post_id, date, author } = this.props
             let aaammjj = date.split('T')[0]
             let heureTest = date.split('T')[1]
             let heure = heureTest.split('.')[0]
@@ -27,7 +27,8 @@ class SingleArticle extends Component {
 
                         <p className= "titreNewArticle">{titre}</p>
                         <p className='blocArticle'>{article}</p>
-                        <p className='date_heure' >Publié le {aaammjj} à {heure} par </p>
+                        
+                        <p className='date_heure' >Publié le {aaammjj} à {heure} par {author.prenom} {author.nom} </p>
                         <CommentForm postId={id} />
                     <div>
                         <PartageArticle id={id} />

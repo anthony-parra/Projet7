@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from 'react'
 import { Redirect } from 'react-router-dom'
-import Image from './Image/image_logo.svg'
+import Image from './Image/image_logo.png'
 import './headers.css'
 
 
@@ -71,7 +71,7 @@ class HeadersPrivate extends Component{
                 <div id='blocDisconnectDelete'>
                     <button id='disconnect' onClick={ this.handleClick } >Se déconnecter</button>
                     <div className='bloc_mail_delete'>
-                        <p>{email}</p><button onClick={ this.handleDelete } id='delete' >Supprimer son compte</button>
+                        <p className='emailHeader'>{email}</p><button onClick={ this.handleDelete } id='delete' >Supprimer son compte</button>
                     </div>
                 </div>
             </header>

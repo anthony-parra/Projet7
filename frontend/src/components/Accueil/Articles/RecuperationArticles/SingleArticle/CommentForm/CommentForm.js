@@ -23,7 +23,7 @@ class CommentForm extends Component {
         let comment = {
             post_id : this.props.postId,
             commentaire: this.state.dataCommentaire,
-            userId: localStorage.getItem('userId')
+            user_id: localStorage.getItem('userId')
         } 
     
         fetch('http://localhost:3000/api/commentaire/create', {

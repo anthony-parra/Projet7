@@ -92,7 +92,8 @@
     margin-left: auto;
     margin-right: auto;
     border-radius: 15px;
-    background-color: #ffd7d7;
+    background-color: gray;
+    color: white;
     transform: scale(1);
     transition: 0.7s;
     display: flex;
@@ -103,8 +104,8 @@
 #inscription_validation:hover,
 #commentaire:hover,
 #partage:hover {
-    background-color: #555cae;
-    color: white;
+    background-color: red;
+    color: black;
     transform: scale(1.15);
     transition: 0.7s;
 }

@@ -36,9 +36,13 @@ h1 {
 }
 
 header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    background-color: #ffd7d7;
+    background-color: rgb(32, 54, 90);
     margin: 0px;
+    height: 200px;
     padding: 15px;
     border: 2px double gray;
     box-shadow: 1px 1px 12px grey;
@@ -49,7 +53,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #ffd7d7;
+    background-color: rgb(32, 54, 90);
     margin: 0px;
     padding: 30px;
     border: 2px double gray;
@@ -60,6 +64,10 @@ header {
 a {
     text-decoration: none;
     color: black;
+}
+
+.emailHeader {
+    color: white;
 }
 
 

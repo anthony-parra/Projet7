@@ -92,14 +92,15 @@ button {
 .nombresCommentaires:hover,
 #commentaireArticleClicked:hover,
 .boutonPartageLien:hover {
-    background-color: black;
-    color: white;
+    background-color: red;
+    color: black;
     transform: scale(1.15);
     transition: 0.7s;
 }
 
 .bloc_color {
-    background-color: #dae0e6;
+    background-color: rgb(32, 54, 90);
+    /*#dae0e6*/
     width: 90%;
     border-radius: 40px;
     border-right: 2px solid black;
@@ -180,8 +181,8 @@ button {
 }
 
 #commentaireArticleClickedPost:hover {
-    background-color: black;
-    color: white;
+    background-color: red;
+    color: black;
     transform: scale(1.15);
     transition: 0.7s;
 }
