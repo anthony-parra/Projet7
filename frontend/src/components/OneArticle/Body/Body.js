@@ -87,6 +87,7 @@ class Body extends Component {
     render(){
 
         const { error, isLoaded, homes } = this.state
+        console.log(homes)
                     
         if (error) {
             return (
@@ -106,6 +107,7 @@ class Body extends Component {
                                 titre={home.titre} 
                                 article={home.article}
                                 date={home.date}
+                                
                                 />
                             )
                         }

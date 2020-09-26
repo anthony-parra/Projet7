@@ -51,7 +51,8 @@ Article.create = (newArticle, result) => {
 // RÉCUPÉRATION D'UN ARTICLE AVEC SON ID
 
   Article.findById = (articleId, result) => {
-    sql.query(`SELECT * FROM Article WHERE id = ${articleId}`, (err, res) => {
+    sql.query(`SELECT * FROM Article WHERE id = ${articleId}`,
+      (err, res) => {
       if (err) {
         console.log("erreur: ", err);
         result(err, null);
@@ -60,16 +61,23 @@ Article.create = (newArticle, result) => {
       if (res) {
         let articles = [];
         articles = res.map(element => {
-        return new Article(element);
-      })
+          let post = new Article(element)
+          post.author = {
+            nom: element.nom,
+            prenom: element.prenom,
+            email: element.email,
+            id: element.id
+          }
+            return post;
+        })
         console.log("Article trouvé ! : ", articles);
         result(null, articles);
         return;
       }
       // not found Customer with the id
       result({ kind: "Non trouvé" }, null);
-    });
-  };
+    })
+}
 
 // SUPPRESSION D'UN ARTICLE AVEC SON ID
 
