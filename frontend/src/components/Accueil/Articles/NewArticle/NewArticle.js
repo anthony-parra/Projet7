@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import '../../articles.css'
-const user_id = localStorage.getItem('userId')
+
 
 class newArticle extends Component {
 
@@ -8,8 +8,7 @@ class newArticle extends Component {
 
         dataForm: {
             titre: '',
-            article:'',
-            user_id: user_id
+            article:''
         },
         article: false,
     }
@@ -18,14 +17,22 @@ class newArticle extends Component {
 
         event.preventDefault();
         const token = localStorage.getItem('token')
+        const user_id = localStorage.getItem('userId')
 
         const myHeaders = new Headers();
-        myHeaders.append('Content-Type', 'application/json');
+        myHeaders.append('Content-Type', 'application/json')
         myHeaders.append('Authorization',`Bearer ${token}`)
+
+        let article = {
+            titre: this.state.dataForm.titre,
+            article: this.state.dataForm.article,
+            user_id: user_id
+        }
+
         fetch('http://localhost:3000/api/article/create', {
             method: 'POST',
             headers: myHeaders,
-            body: JSON.stringify(this.state.dataForm)
+            body: JSON.stringify(article)
         })
         .then(response => {
             if (response.ok) {
