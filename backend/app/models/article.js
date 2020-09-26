@@ -12,7 +12,7 @@ const Article = function(e) {
 // CRÉATION D'UN NOUVEL ARTICLE
 
 Article.create = (newArticle, result) => {
-    sql.query(`INSERT INTO Article (titre, article, user_id) VALUES ('${newArticle.titre}','${newArticle.article}','${newArticle.user_id}')`, (err, res) => {
+    sql.query(`INSERT INTO Article (titre, article, user_id) VALUES ("${newArticle.titre}","${newArticle.article}",'${newArticle.user_id}')`, (err, res) => {
       if (err) {
         console.log("erreur: ", err);
         result(err, null);

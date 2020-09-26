@@ -24,7 +24,7 @@ class Body extends Component {
         let comment = {
             post_id : post_id,
             commentaire: dataCommentaire,
-            userId: localStorage.getItem('userId')
+            user_id: localStorage.getItem('userId')
         }
     
         fetch('http://localhost:3000/api/commentaire/create', {
