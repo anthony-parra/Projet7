@@ -1,6 +1,7 @@
  //    GROUPOMANIA     //
 
 Installer Node.js sur votre ordinateur
+Lancer un serveur (MAMP, WAMP, XAMP, etc...)
 
 Dossier backend
 
