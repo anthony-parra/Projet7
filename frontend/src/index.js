@@ -6,7 +6,7 @@ import './index.css';
 import AppAccueil from './AppAccueil'
 import AppOneArticle from './AppOneArticle'
 import PageNonTrouve from './components/PagePublic/PageNonTrouve/PageNonTrouve'
-import ConnexionInscription from './components/PagePublic/Container/Body/body'
+import ConnexionInscription from './components/PagePublic/Container/Body/Body'
 import ConnexionAfter from './components/PagePublic/Container/Connexion-Inscription/ConnexionAfter/ConnexionAfter'
 
 const Root = () => (
