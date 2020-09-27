@@ -51,14 +51,14 @@ Article.create = (newArticle, result) => {
 // RÉCUPÉRATION D'UN ARTICLE AVEC SON ID
 
   Article.findById = (articleId, result) => {
-    sql.query(`SELECT * FROM Article WHERE id = ${articleId}`,
+    sql.query(`SELECT a.id, a.titre, a.article, a.date, a.user_id AS "author_id", i.email, i.nom, i.prenom FROM Article a INNER JOIN Inscription i ON a.user_id = i.id WHERE a.id = ${articleId} ORDER BY date DESC`,
       (err, res) => {
       if (err) {
         console.log("erreur: ", err);
         result(err, null);
         return;
       }
-      if (res) {
+      if (res, articleId) {
         let articles = [];
         articles = res.map(element => {
           let post = new Article(element)

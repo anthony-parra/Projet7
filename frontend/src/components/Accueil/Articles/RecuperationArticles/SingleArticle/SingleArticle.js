@@ -18,7 +18,6 @@ class SingleArticle extends Component {
             let aaammjj = date.split('T')[0]
             let heureTest = date.split('T')[1]
             let heure = heureTest.split('.')[0]
-            
 
             return (
 
@@ -33,7 +32,7 @@ class SingleArticle extends Component {
                     <div>
                         <PartageArticle id={id} />
                         <GoArticle id={id} />
-                        <AllComments comments={comments} postId={post_id}/>          
+                        <AllComments comments={comments} postId={post_id} author={author}/>          
                     </div>
                     
                     </div>

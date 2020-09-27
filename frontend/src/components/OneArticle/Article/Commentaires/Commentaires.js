@@ -28,7 +28,7 @@ class Commentaire extends Component {
                             comments.map((comment, index) =>
                                 <Fragment key={'comment' + index}>
                                     <p post_id={post_id} className='blocCommentaireClicked'>=> {comment.commentaire}</p>
-                                    <p className='date_heure'>Publié le {comment.date.split('T')[0]} à {comment.date.split('T')[1].split('.')[0]}</p>
+                                    <p className='date_heure'>Publié le {comment.date.split('T')[0]} à {comment.date.split('T')[1].split('.')[0]} par {comment.email.split('.')[0].toUpperCase()} {comment.email.split('.')[1].split('@')[0].toUpperCase()} </p>
                                </Fragment>
                             )
                                 :

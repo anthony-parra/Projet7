@@ -12,11 +12,13 @@ class Body extends Component {
         homes: [],
         nombreCommentaire: false,
         dataCommentaire: '',
+        postComment: false
     }
 
     handleSubmitCommentaire = (event, post_id, dataCommentaire) => {
         event.preventDefault()
         const token = localStorage.getItem('token')
+        const email = localStorage.getItem('email')
         const myHeaders = new Headers();
         myHeaders.append('Content-Type', 'application/json')
         myHeaders.append('Authorization',`Bearer ${token}`)
@@ -24,7 +26,8 @@ class Body extends Component {
         let comment = {
             post_id : post_id,
             commentaire: dataCommentaire,
-            user_id: localStorage.getItem('userId')
+            user_id: localStorage.getItem('userId'),
+            email: email
         }
     
         fetch('http://localhost:3000/api/commentaire/create', {
@@ -45,6 +48,7 @@ class Body extends Component {
             post.comments.push(response)
             this.setState({ homes })
         })
+        .then(this.setState({ postComment: true }))
         .catch((error) => {
             console.log({ message : 'Il y a une erreur : '+ error}) 
         })
@@ -86,8 +90,11 @@ class Body extends Component {
 
     render(){
 
-        const { error, isLoaded, homes } = this.state
-        console.log(homes)
+        const { error, isLoaded, homes, postComment } = this.state
+
+        if(postComment){
+            return window.location.reload()
+        }
                     
         if (error) {
             return (
@@ -107,6 +114,7 @@ class Body extends Component {
                                 titre={home.titre} 
                                 article={home.article}
                                 date={home.date}
+                                author={home.author}
                                 
                                 />
                             )
@@ -126,6 +134,7 @@ class Body extends Component {
                                 key={'home' + index}
                                 post_id={home.post_id}
                                 comments={home.comments}
+                                //author={home.author}
                                 />
                             )
                         }     

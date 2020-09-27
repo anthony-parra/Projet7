@@ -5,6 +5,7 @@ const Commentaire = function(e) {
     this.post_id = e.post_id;
     this.user_id = e.user_id;
     this.date = e.date;
+    this.email = e.email;
   }
 
 // CRÉATION D'UN COMMENTAIRE
@@ -24,13 +25,12 @@ const Commentaire = function(e) {
 // RÉCUPÉRATION DE TOUS LES COMMENTAIRES
 
 Commentaire.getAll = result => {
-  sql.query("SELECT * FROM Commentaires", (err, res) => {
+  sql.query("SELECT * FROM Commentaires ORDER BY id DESC", (err, res) => {
     if (err) {
       console.log("erreur: ", err);
       result(null, err);
       return;
     }
-
     console.log("Commentaire : ", res);
     result(null, res);
   });

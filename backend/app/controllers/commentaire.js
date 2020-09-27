@@ -11,6 +11,7 @@ exports.create = (req, res) => {
           commentaire: req.body.commentaire,
           user_id: req.body.user_id,
           post_id: req.body.post_id,
+          email: req.body.email,
       });
         Commentaire.create(commentaire, (err, data) => {
             if (err)

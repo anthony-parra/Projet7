@@ -16,6 +16,7 @@ class CommentForm extends Component {
     handleClick = (event) => {
         event.preventDefault()
         const token = localStorage.getItem('token')
+        const email = localStorage.getItem('email')
         const myHeaders = new Headers();
         myHeaders.append('Content-Type', 'application/json');
         myHeaders.append('Authorization',`Bearer ${token}`)
@@ -23,7 +24,8 @@ class CommentForm extends Component {
         let comment = {
             post_id : this.props.postId,
             commentaire: this.state.dataCommentaire,
-            user_id: localStorage.getItem('userId')
+            user_id: localStorage.getItem('userId'),
+            email: email
         } 
     
         fetch('http://localhost:3000/api/commentaire/create', {
